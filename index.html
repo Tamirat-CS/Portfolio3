@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Tamirat Alemu — Full-Stack Developer · Video Editor · Amharic–English Translator</title>
+<meta name="description" content="Official portfolio of Tamirat Alemu: Full-stack developer, cinematic video editor, data specialist, and professional Amharic–English translator based in Ethiopia.">
+<meta name="keywords" content="Tamirat Alemu, Full-Stack Developer, Video Editor, Amharic Translator, Web Developer Ethiopia, Wolkite University, React, PHP, DaVinci Resolve, Python, TypeScript, C++">
+<meta name="author" content="Tamirat Alemu">
+<meta name="theme-color" content="#04060a">
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="Tamirat Alemu — Full-Stack Developer & Video Editor">
+<meta property="og:description" content="Crafting high-impact digital experiences, cinematic video edits, and certified Amharic–English localization.">
+<meta property="og:image" content="assets/images/profile1.jpg">
+<meta property="og:type" content="website">
+
+<!-- Premium Typography: Noto Sans Ethiopic, Syne, Plus Jakarta Sans, Space Grotesk, JetBrains Mono -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&family=Noto+Sans+Ethiopic:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ AMBIENT CURSOR & SPOTLIGHT ============ -->
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+<div class="mouse-spotlight" id="mouseSpotlight" aria-hidden="true"></div>
+
+<!-- ============ CYBER PRELOADER ============ -->
+<div class="preloader" id="preloader" role="status" aria-label="Loading portfolio">
+  <div class="preloader__bg"></div>
+  <div class="preloader__inner">
+    <div class="preloader__mark">
+      <span class="preloader__monogram">TA</span>
+      <span class="preloader__orbit"></span>
+      <span class="preloader__orbit preloader__orbit--2"></span>
+      <span class="preloader__orbit preloader__orbit--3"></span>
+    </div>
+    <div class="preloader__name">Tamirat Alemu</div>
+    <div class="preloader__role" id="preloaderRoleText">Full-Stack Developer · Video Editor · Translator</div>
+    <div class="preloader__bar"><span id="preloaderBar"></span></div>
+    <div class="preloader__status" id="preloaderStatus">[ INITIALIZING_SYSTEM ]</div>
+    <div class="preloader__pct"><span id="preloaderPct">0</span>%</div>
+  </div>
+</div>
+
+<!-- ============ SCROLL PROGRESS BAR ============ -->
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- ============ AMBIENT BACKGROUND & PARTICLES ============ -->
+<div class="bg" aria-hidden="true">
+  <canvas class="bg__canvas" id="particleCanvas"></canvas>
+  <div class="bg__grid"></div>
+  <div class="bg__orb bg__orb--violet"></div>
+  <div class="bg__orb bg__orb--cyan"></div>
+  <div class="bg__orb bg__orb--rose"></div>
+  <div class="bg__orb bg__orb--emerald"></div>
+  <div class="bg__noise"></div>
+</div>
+
+<!-- ============ MOBILE TOPBAR ============ -->
+<header class="mobile-topbar" id="mobileTopbar">
+  <a href="#home" class="brand" data-section="home" aria-label="Tamirat Alemu Home">
+    <span class="brand__mark">TA</span>
+    <span class="brand__name">Tamirat<em>.</em></span>
+    <span class="brand__status-dot" title="Available for work"></span>
+  </a>
+
+  <div class="mobile-topbar__actions">
+    <!-- Trilingual Switcher Button (English / አማርኛ / Afaan Oromoo) -->
+    <button class="btn-pill-action" id="mobileLangToggle" aria-label="Toggle Language" title="Toggle English / አማርኛ / Afaan Oromoo">
+      <span class="flag-icon">🌐</span> <span class="lang-text">EN</span>
+    </button>
+    <!-- Sound FX Toggle -->
+    <button class="btn-pill-action" id="mobileSoundToggle" aria-label="Toggle Sound Effects" title="Toggle Audio (Press M)">
+      <i class="fa-solid fa-volume-high"></i>
+    </button>
+    <!-- Theme Toggle -->
+    <button class="btn-pill-action" id="mobileThemeToggle" aria-label="Toggle Theme" title="Toggle Dark/Light (Press T)">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+    <!-- Hamburger Button -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation drawer" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="drawer-mask" id="drawerMask" aria-hidden="true"></div>
+
+<!-- ============ APPLICATION DUAL-PANE SHELL (BOTH CONTAINERS VISIBLE & SCROLLABLE) ============ -->
+<div class="app-shell" id="appShell">
+
+<!-- ============ INTERACTIVE SIDEBAR WITH PROFILE PHOTO 1 ============ -->
+<aside class="sidebar" id="sidebar" aria-label="Primary Interactive Sidebar">
+  <div class="sidebar__scroll">
+
+    <!-- Profile Hero Card in Sidebar (Large, Top, Ultra-Attractive Container & Animations) -->
+    <div class="sidebar__profile-hero">
+      <div class="sidebar__avatar-wrap-lg">
+        <div class="avatar-aura-lg"></div>
+        <div class="avatar-ring-lg avatar-ring-lg--cyan"></div>
+        <div class="avatar-ring-lg avatar-ring-lg--violet"></div>
+        <div class="avatar-ring-lg avatar-ring-lg--rose"></div>
+
+        <!-- Orbiting Satellite Beacons -->
+        <div class="avatar-satellites">
+          <span class="satellite-beacon satellite-beacon--1" title="Full-Stack Dev"></span>
+          <span class="satellite-beacon satellite-beacon--2" title="Video Master"></span>
+          <span class="satellite-beacon satellite-beacon--3" title="Python & AI"></span>
+        </div>
+
+        <div class="avatar-frame-lg" id="sidebarAvatarContainer">
+          <!-- Main Profile Photo (Crisp, High-Resolution Professional Portrait) -->
+          <img src="assets/images/profile1.jpg" alt="Tamirat Alemu — Portrait" id="sidebarPhoto"
+               onerror="this.onerror=null;this.src='assets/images/avatar.jpg';">
+          <div class="avatar-shine-sweep"></div>
+        </div>
+
+        <!-- Live Status Pill -->
+        <div class="avatar-live-badge" title="Active & Ready for Work">
+          <span class="status-dot"></span>
+          <span class="badge-status-text">AVAILABLE</span>
+        </div>
+      </div>
+
+      <h1 class="sidebar__name">
+        <span class="gradient-text-animated">Tamirat Alemu</span>
+      </h1>
+      <p class="sidebar__role" data-i18n="sidebar_role">Full-Stack Developer &amp; Video Editor</p>
+
+      <!-- Scholar Tag -->
+      <div class="sidebar__uni-badge">
+        <i class="fa-solid fa-graduation-cap col-cyan"></i>
+        <span>Wolkite University · CS Scholar</span>
+      </div>
+
+      <!-- Location & Wolkite Live Clock -->
+      <div class="sidebar__meta">
+        <span><i class="fa-solid fa-location-dot col-cyan"></i> Wolkite, Ethiopia</span>
+        <span id="sidebarClockWrap"><i class="fa-regular fa-clock col-violet"></i> <strong id="liveClockDisplay">--:--:--</strong> EAT</span>
+      </div>
+
+      <!-- Trilingual Language Switcher (English · አማርኛ · Afaan Oromoo) -->
+      <div class="lang-selector-group lang-selector-group--3">
+        <button class="btn-lang is-active" id="langBtnEn" data-lang="en" title="English">
+          <span class="btn-lang__flag">🌐</span>
+          <span>EN</span>
+        </button>
+        <button class="btn-lang" id="langBtnAm" data-lang="am" title="አማርኛ">
+          <span class="btn-lang__flag">🇪🇹</span>
+          <span>አማ</span>
+        </button>
+        <button class="btn-lang" id="langBtnOm" data-lang="om" title="Afaan Oromoo">
+          <span class="btn-lang__flag">🌳</span>
+          <span>ORO</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Button-Based Primary Navigation -->
+    <nav class="sidebar__nav" aria-label="Sidebar Navigation">
+      <a href="#home" class="nav-btn is-active" data-section="home">
+        <i class="fa-solid fa-house"></i>
+        <span data-i18n="nav_home">Home</span>
+        <kbd>1</kbd>
+      </a>
+      <a href="#about" class="nav-btn" data-section="about">
+        <i class="fa-regular fa-user"></i>
+        <span data-i18n="nav_about">About</span>
+        <kbd>2</kbd>
+      </a>
+      <a href="#languages" class="nav-btn" data-section="languages">
+        <i class="fa-solid fa-code"></i>
+        <span data-i18n="nav_langs">Languages &amp; Stack</span>
+        <kbd>3</kbd>
+      </a>
+      <a href="#services" class="nav-btn" data-section="services">
+        <i class="fa-solid fa-layer-group"></i>
+        <span data-i18n="nav_services">Services</span>
+        <kbd>4</kbd>
+      </a>
+      <a href="#work" class="nav-btn" data-section="work">
+        <i class="fa-regular fa-folder-open"></i>
+        <span data-i18n="nav_work">Selected Work</span>
+        <kbd>5</kbd>
+      </a>
+      <a href="#video-studio" class="nav-btn" data-section="video-studio">
+        <i class="fa-solid fa-film"></i>
+        <span data-i18n="nav_video">Video Studio</span>
+        <kbd>6</kbd>
+      </a>
+      <a href="#translation-lab" class="nav-btn" data-section="translation-lab">
+        <i class="fa-solid fa-language"></i>
+        <span data-i18n="nav_trans">Language Lab</span>
+        <kbd>7</kbd>
+      </a>
+      <a href="#contact" class="nav-btn" data-section="contact">
+        <i class="fa-regular fa-envelope"></i>
+        <span data-i18n="nav_contact">Contact</span>
+        <kbd>8</kbd>
+      </a>
+    </nav>
+
+    <!-- Sidebar Interactive Action Buttons -->
+    <div class="sidebar__actions">
+      <a href="documents/CV.pdf" class="btn btn--primary btn--block btn--shine" id="sidebarCvDownloadBtn" download>
+        <i class="fa-solid fa-file-arrow-down"></i>
+        <span data-i18n="download_cv">Download Résumé</span>
+      </a>
+
+      <div class="sidebar__btn-duo">
+        <button class="btn btn--glass btn--sm" id="sidebarViewCvBtn" type="button">
+          <i class="fa-regular fa-id-card"></i>
+          <span data-i18n="quick_cv">Quick CV</span>
+        </button>
+        <button class="btn btn--glass btn--sm" id="sidebarTerminalBtn" type="button">
+          <i class="fa-solid fa-terminal"></i>
+          <span>CLI ⌘T</span>
+        </button>
+      </div>
+
+      <!-- Audio & Appearance Control Buttons -->
+      <div class="sidebar__toggles">
+        <button class="btn-pill-toggle" id="soundToggle" aria-label="Toggle Sound Effects" title="Toggle audio (Press M)">
+          <i class="fa-solid fa-volume-high"></i>
+          <span id="soundToggleLabel">Audio On</span>
+        </button>
+        <button class="btn-pill-toggle" id="themeToggle" aria-label="Toggle Dark/Light Mode" title="Toggle theme (Press T)">
+          <i class="fa-solid fa-moon"></i>
+          <span id="themeToggleLabel">Obsidian</span>
+        </button>
+      </div>
+
+      <!-- Command Palette Button -->
+      <button class="btn-command-palette" id="openPaletteSidebar" type="button" aria-label="Open Command Palette">
+        <i class="fa-solid fa-bolt col-amber"></i>
+        <span>Command Palette</span>
+        <kbd>⌘K</kbd>
+      </button>
+
+      <!-- Quick Social Contact Buttons -->
+      <div class="sidebar__social-buttons" aria-label="Direct channels">
+        <button class="btn-icon-copy" data-copy="tame.wku.cs@gmail.com" title="Copy Email: tame.wku.cs@gmail.com">
+          <i class="fa-regular fa-envelope"></i>
+        </button>
+        <button class="btn-icon-copy" data-copy="+251930909214" title="Copy Phone: +251 930 909 214">
+          <i class="fa-solid fa-phone"></i>
+        </button>
+        <a class="btn-icon-link" href="https://t.me/Tame_Al29" target="_blank" rel="noopener" title="Telegram: @Tame_Al29">
+          <i class="fa-brands fa-telegram"></i>
+        </a>
+        <a class="btn-icon-link" href="https://github.com/Tamirat-CS" target="_blank" rel="noopener" title="GitHub: Tamirat-CS">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a class="btn-icon-link" href="https://www.youtube.com/@tame_1219" target="_blank" rel="noopener" title="YouTube: @Tamirat_Tubes">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </div>
+
+      <!-- Quick Metrics Matrix in Sidebar -->
+      <div class="sidebar__stats-grid">
+        <div class="sidebar-stat">
+          <strong data-count="15">15</strong>
+          <span>Projects</span>
+        </div>
+        <div class="sidebar-stat">
+          <strong data-count="3">3</strong>
+          <span>Years</span>
+        </div>
+        <div class="sidebar-stat">
+          <strong data-count="100">100</strong>
+          <span>% Success</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</aside>
+
+<!-- ============ MAIN CONTENT AREA WITH PROFILE PHOTO 2 ============ -->
+<main class="main" id="mainContent">
+
+  <!-- ============================================================
+       HERO SECTION — DUAL COLUMN WITH PROFILE PHOTO 2
+       ============================================================ -->
+  <section class="hero" id="home" aria-labelledby="heroTitle">
+    <div class="hero__glow" aria-hidden="true"></div>
+
+    <!-- ============================================================
+         LARGER SIDEBAR TOP PROFILE HERO SPOTLIGHT (ULTRA-ATTRACTIVE)
+         ============================================================ -->
+    <div class="hero-top-profile reveal" id="heroTopProfile">
+      <div class="hero-top-profile__card">
+        <div class="hero-top-profile__ambient" aria-hidden="true"></div>
+
+        <div class="hero-top-profile__avatar-wrap">
+          <div class="avatar-halo-pulse" aria-hidden="true"></div>
+          <div class="avatar-ring-animated avatar-ring--outer" aria-hidden="true"></div>
+          <div class="avatar-ring-animated avatar-ring--inner" aria-hidden="true"></div>
+          <div class="hero-top-profile__frame">
+            <img src="assets/images/avatar.jpg" alt="Tamirat Alemu — Profile Portrait" id="mainHeroPhoto"
+                 onerror="this.onerror=null;this.src='assets/images/profile1.jpg';">
+            <div class="avatar-shimmer-sweep" aria-hidden="true"></div>
+          </div>
+          <!-- Live Available Badge -->
+          <div class="avatar-live-beacon" title="Active & Open for Contracts">
+            <span class="status-dot"></span>
+            <span class="beacon-text" data-i18n="spotlight_available">AVAILABLE FOR HIRE</span>
+          </div>
+        </div>
+
+        <div class="hero-top-profile__details">
+          <div class="profile-meta-line">
+            <span class="meta-tag col-cyan"><i class="fa-solid fa-code"></i> Full-Stack &amp; Video</span>
+            <span class="meta-loc col-rose"><i class="fa-solid fa-location-dot"></i> Wolkite, Ethiopia</span>
+            <span class="meta-lang col-emerald"><i class="fa-solid fa-globe"></i> EN · አማ · ORO</span>
+          </div>
+
+          <h2 class="profile-hero-name">
+            <span class="gradient-text-animated" data-i18n="hero_name">Tamirat Alemu</span>
+            <span class="profile-hero-aka" data-i18n="hero_name_sub">(Taammiraat Alamuu)</span>
+          </h2>
+
+          <p class="profile-hero-bio" data-i18n="spotlight_tagline">
+            Computer Science Specialist · Cinematic Video Editor · Python Automation · Trilingual Localization Partner
+          </p>
+
+          <div class="profile-tech-chips">
+            <span class="tech-chip tech-chip--react"><i class="fa-brands fa-react col-cyan"></i> React 18</span>
+            <span class="tech-chip tech-chip--python"><i class="fa-brands fa-python col-gold"></i> Python 3</span>
+            <span class="tech-chip tech-chip--js"><i class="fa-brands fa-js col-amber"></i> JavaScript</span>
+            <span class="tech-chip tech-chip--davinci"><i class="fa-solid fa-film col-rose"></i> DaVinci Resolve</span>
+            <span class="tech-chip tech-chip--fastapi"><i class="fa-solid fa-bolt col-violet"></i> FastAPI / PHP</span>
+          </div>
+
+          <div class="profile-hero-btns">
+            <a href="#contact" class="btn btn--primary btn--sm btn--shine" data-section="contact">
+              <i class="fa-regular fa-paper-plane"></i>
+              <span data-i18n="hero_cta_talk">Let's Connect</span>
+            </a>
+            <button class="btn btn--glass btn--sm" id="topProfileCvBtn" type="button">
+              <i class="fa-regular fa-id-card col-cyan"></i>
+              <span data-i18n="hero_cta_cv">Inspect Résumé</span>
+            </button>
+            <a href="#work" class="btn btn--outline btn--sm" data-section="work">
+              <i class="fa-solid fa-layer-group col-violet"></i>
+              <span data-i18n="hero_cta_work">Explore Shipped Systems</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="hero__layout">
+      <!-- Hero Left: Typography & Colored Text Spans -->
+      <div class="hero__content">
+        <!-- Live Status Badge -->
+        <div class="hero__badge reveal">
+          <span class="status-dot"></span>
+          <span class="badge-text" data-i18n="hero_status">Available for Freelance &amp; Full-Time Contracts</span>
+          <span class="badge-sep">·</span>
+          <span class="badge-loc col-cyan"><i class="fa-solid fa-location-dot"></i> Wolkite, Ethiopia</span>
+        </div>
+
+        <!-- Animated Colored Headline -->
+        <h1 class="hero__title" id="heroTitle">
+          <span class="hero__title-line reveal">
+            <span data-i18n="hero_greeting_prefix">Hi, I'm</span>
+            <span class="gradient-text-animated" data-i18n="hero_name">Tamirat Alemu</span>.
+          </span>
+          <span class="hero__title-line colored-line-1 reveal" data-i18n="hero_line2">
+            Architecting High-Impact Digital Systems
+          </span>
+          <span class="hero__title-line colored-line-2 reveal" data-i18n="hero_line3">
+            &amp; Cinematic Motion Experiences.
+          </span>
+        </h1>
+
+        <!-- Subheadline Lead Copy with Colored Highlighting -->
+        <p class="hero__lead reveal" data-i18n="hero_lead">
+          A <strong class="col-cyan">full-stack software engineer</strong>, <strong class="col-rose">cinematic video director</strong>, <strong class="col-gold">Python data specialist</strong>, and native-level <strong class="col-emerald">Amharic ⇄ English localization partner</strong>. Based in Ethiopia, I partner with founders, agencies, and creators to turn ambitious ideas into production-ready products on schedule.
+        </p>
+
+        <!-- Dynamic Typewriter Role Box -->
+        <div class="hero__rolebox reveal" id="heroRolebox">
+          <span class="rolebox__tag"><i class="fa-solid fa-terminal col-cyan"></i> <span data-i18n="hero_focus">Current Specialty:</span></span>
+          <span class="rolebox__text gradient-text-cyan-violet" id="rotatingRole">Full-Stack Web Developer</span>
+          <span class="rolebox__caret"></span>
+        </div>
+
+        <!-- Button-Based Action Group -->
+        <div class="hero__actions reveal">
+          <a href="#work" class="btn btn--primary btn--lg btn--shine" data-section="work">
+            <span data-i18n="hero_cta_work">Explore Shipped Systems</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <button class="btn btn--glass btn--lg" id="heroViewCvBtn" type="button">
+            <i class="fa-regular fa-id-card col-cyan"></i>
+            <span data-i18n="hero_cta_cv">Inspect Résumé</span>
+          </button>
+          <a href="#contact" class="btn btn--outline btn--lg" data-section="contact">
+            <i class="fa-regular fa-paper-plane col-violet"></i>
+            <span data-i18n="hero_cta_talk">Let's Connect</span>
+          </a>
+        </div>
+
+        <!-- Hero Stats Counters Matrix -->
+        <div class="hero__stats-row reveal" role="list">
+          <div class="hero-stat-card" role="listitem">
+            <div class="hero-stat-card__num col-cyan"><span data-count="15">0</span><em>+</em></div>
+            <div class="hero-stat-card__label" data-i18n="stat_projects">Production Systems</div>
+          </div>
+          <div class="hero-stat-card" role="listitem">
+            <div class="hero-stat-card__num col-violet"><span data-count="100">0</span><em>%</em></div>
+            <div class="hero-stat-card__label" data-i18n="stat_success">On-Time Delivery</div>
+          </div>
+          <div class="hero-stat-card" role="listitem">
+            <div class="hero-stat-card__num col-rose"><span data-count="25">0</span><em>+</em></div>
+            <div class="hero-stat-card__label" data-i18n="stat_videos">Videos Produced</div>
+          </div>
+          <div class="hero-stat-card" role="listitem">
+            <div class="hero-stat-card__num col-emerald"><span data-count="3">0</span><em>+</em></div>
+            <div class="hero-stat-card__label" data-i18n="stat_years">Years Experience</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Right: INTERACTIVE REACT & PYTHON ENGINEERING COCKPIT -->
+      <div class="hero__tech-cockpit reveal">
+        <div class="cockpit-card" id="heroCockpitCard">
+          <div class="cockpit-card__aura"></div>
+
+          <!-- Cockpit Header with Interactive Selector Tabs -->
+          <div class="cockpit-header">
+            <div class="cockpit-dots">
+              <span class="cdot cdot--red"></span>
+              <span class="cdot cdot--yellow"></span>
+              <span class="cdot cdot--green"></span>
+            </div>
+            <div class="cockpit-tabs">
+              <button class="cockpit-tab is-active" data-hud-tab="react" id="tabReact">
+                <i class="fa-brands fa-react col-cyan"></i> <span>React 18</span>
+              </button>
+              <button class="cockpit-tab" data-hud-tab="python" id="tabPython">
+                <i class="fa-brands fa-python col-gold"></i> <span>Python 3</span>
+              </button>
+              <button class="cockpit-tab" data-hud-tab="davinci" id="tabDavinci">
+                <i class="fa-solid fa-film col-rose"></i> <span>DaVinci</span>
+              </button>
+            </div>
+            <span class="cockpit-badge"><i class="fa-solid fa-circle-play col-emerald"></i> LIVE</span>
+          </div>
+
+          <!-- PANEL 1: REACT.JS INTERACTIVE STATE SIMULATOR -->
+          <div class="cockpit-panel is-active" id="hudPanelReact">
+            <div class="cockpit-panel__header">
+              <div class="panel-tag"><i class="fa-brands fa-react col-cyan"></i> <strong>Reactive Voter State</strong></div>
+              <span class="panel-file">E-VotingComponent.tsx</span>
+            </div>
+
+            <!-- Interactive React Component Demo -->
+            <div class="react-live-demo">
+              <div class="react-demo__row">
+                <div class="react-demo__info">
+                  <span class="candidate-name"><i class="fa-solid fa-user-check col-cyan"></i> Tamirat Alemu (Full-Stack)</span>
+                  <span class="candidate-pct" id="reactVotesPctA">64.2%</span>
+                </div>
+                <div class="candidate-bar"><span id="reactBarA" style="width: 64.2%;"></span></div>
+                <button class="btn btn--primary btn--sm react-vote-btn" id="voteBtnA">
+                  <i class="fa-solid fa-thumbs-up"></i> <span>Cast Vote (+1)</span>
+                </button>
+              </div>
+
+              <div class="react-demo__row">
+                <div class="react-demo__info">
+                  <span class="candidate-name"><i class="fa-solid fa-code-branch col-violet"></i> System Architecture Lead</span>
+                  <span class="candidate-pct" id="reactVotesPctB">35.8%</span>
+                </div>
+                <div class="candidate-bar candidate-bar--violet"><span id="reactBarB" style="width: 35.8%;"></span></div>
+                <button class="btn btn--outline btn--sm react-vote-btn" id="voteBtnB">
+                  <i class="fa-solid fa-plus"></i> <span>Support (+1)</span>
+                </button>
+              </div>
+
+              <div class="react-state-hud">
+                <span class="hud-item"><i class="fa-solid fa-database col-cyan"></i> Verified: <strong id="hudTotalVotes">342</strong> votes</span>
+                <span class="hud-item"><i class="fa-solid fa-bolt col-gold"></i> Latency: <strong>12ms</strong></span>
+                <span class="hud-item"><i class="fa-solid fa-shield-halved col-emerald"></i> Ledger: <strong>Synced</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANEL 2: PYTHON 3 & PANDAS VECTORIZED DATA ENGINE -->
+          <div class="cockpit-panel" id="hudPanelPython">
+            <div class="cockpit-panel__header">
+              <div class="panel-tag"><i class="fa-brands fa-python col-gold"></i> <strong>Pandas Data Engine</strong></div>
+              <span class="panel-file">Vectorized Pipeline</span>
+            </div>
+
+            <div class="python-live-console">
+              <div class="davinci-specs-grid">
+                <div class="dspec"><span class="dspec__label">Throughput</span><strong class="col-gold">9.8M Rows / Sec</strong></div>
+                <div class="dspec"><span class="dspec__label">Dataset Scale</span><strong class="col-cyan">142,800+ Records</strong></div>
+                <div class="dspec"><span class="dspec__label">Validation</span><strong class="col-emerald">99.9% Auto-Cleaned</strong></div>
+                <div class="dspec"><span class="dspec__label">Format Support</span><strong class="col-violet">CSV · JSON · MySQL</strong></div>
+              </div>
+              <div class="python-run-row">
+                <button class="btn btn--primary btn--sm" id="runPythonPipelineBtn">
+                  <i class="fa-solid fa-play"></i> <span>Run Pipeline (100k Rows)</span>
+                </button>
+                <span class="python-time-badge" id="pySpeedBadge">0.018s Benchmark</span>
+              </div>
+              <div class="python-stream-logs" id="pythonLogsBox">
+                <div class="log-line col-emerald">✓ Initialized Pandas 2.2 engine</div>
+                <div class="log-line col-cyan">✓ Ingested 142,800 records from Wolkite University</div>
+                <div class="log-line col-gold">✓ Sanitized duplicate records · 0 integrity errors</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANEL 3: DAVINCI RESOLVE MOTION & COLOR STUDIO -->
+          <div class="cockpit-panel" id="hudPanelDavinci">
+            <div class="cockpit-panel__header">
+              <div class="panel-tag"><i class="fa-solid fa-film col-rose"></i> <strong>DaVinci Resolve Studio 19</strong></div>
+              <span class="panel-file">ColorMaster_Rec709.drx</span>
+            </div>
+
+            <div class="davinci-hud-body">
+              <div class="davinci-specs-grid">
+                <div class="dspec"><span class="dspec__label">Color Space</span><strong class="col-cyan">Rec.709 / LogC3</strong></div>
+                <div class="dspec"><span class="dspec__label">Resolution</span><strong class="col-gold">4K DCI (3840×2160)</strong></div>
+                <div class="dspec"><span class="dspec__label">Frame Rate</span><strong class="col-emerald">60.00 FPS Locked</strong></div>
+                <div class="dspec"><span class="dspec__label">Bit Depth</span><strong class="col-rose">10-Bit 4:2:2 Color</strong></div>
+              </div>
+
+              <!-- Animated Waveform & Timeline -->
+              <div class="timeline-visualizer">
+                <div class="waveform-bars">
+                  <span style="height: 45%;"></span><span style="height: 75%;"></span><span style="height: 60%;"></span>
+                  <span style="height: 90%;"></span><span style="height: 85%;"></span><span style="height: 50%;"></span>
+                  <span style="height: 95%;"></span><span style="height: 70%;"></span><span style="height: 80%;"></span>
+                  <span style="height: 65%;"></span><span style="height: 100%;"></span><span style="height: 40%;"></span>
+                </div>
+                <div class="timeline-progress-bar"><span class="timeline-playhead"></span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Interactive Skill Badges around the Cockpit -->
+          <span class="cockpit-chip cockpit-chip--1" title="React 18 &amp; Next"><i class="fa-brands fa-react col-cyan"></i></span>
+          <span class="cockpit-chip cockpit-chip--2" title="Python 3 &amp; Pandas"><i class="fa-brands fa-python col-gold"></i></span>
+          <span class="cockpit-chip cockpit-chip--3" title="DaVinci Resolve Studio"><i class="fa-solid fa-film col-rose"></i></span>
+          <span class="cockpit-chip cockpit-chip--4" title="PHP &amp; MySQL"><i class="fa-brands fa-php col-violet"></i></span>
+          <span class="cockpit-chip cockpit-chip--5" title="TypeScript &amp; C++"><i class="fa-solid fa-code col-emerald"></i></span>
+
+          <!-- Floating Status Beacon at bottom -->
+          <div class="cockpit-footer-beacon">
+            <span class="status-dot"></span>
+            <span data-i18n="portrait_beacon">Verified Full-Stack Architect &amp; Video Director</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Infinite Auto-Scrolling Tech Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span><i class="fa-brands fa-react col-cyan"></i> React.js</span><em>◆</em>
+        <span><i class="fa-brands fa-js col-gold"></i> JavaScript ES2024</span><em>◆</em>
+        <span><i class="fa-brands fa-python col-cyan"></i> Python &amp; Pandas</span><em>◆</em>
+        <span><i class="fa-brands fa-php col-violet"></i> PHP &amp; OOP</span><em>◆</em>
+        <span><i class="fa-solid fa-database col-cyan"></i> MySQL Database</span><em>◆</em>
+        <span><i class="fa-solid fa-video col-rose"></i> DaVinci Resolve</span><em>◆</em>
+        <span><i class="fa-solid fa-film col-violet"></i> Premiere Pro</span><em>◆</em>
+        <span><i class="fa-solid fa-wand-magic-sparkles col-rose"></i> After Effects</span><em>◆</em>
+        <span><i class="fa-brands fa-html5 col-gold"></i> HTML5 &amp; CSS3</span><em>◆</em>
+        <span><i class="fa-solid fa-language col-emerald"></i> Amharic ⇄ English</span><em>◆</em>
+        <span><i class="fa-brands fa-git-alt col-rose"></i> Git &amp; GitHub</span><em>◆</em>
+        <!-- duplicate track for seamless continuous loop -->
+        <span><i class="fa-brands fa-react col-cyan"></i> React.js</span><em>◆</em>
+        <span><i class="fa-brands fa-js col-gold"></i> JavaScript ES2024</span><em>◆</em>
+        <span><i class="fa-brands fa-python col-cyan"></i> Python &amp; Pandas</span><em>◆</em>
+        <span><i class="fa-brands fa-php col-violet"></i> PHP &amp; OOP</span><em>◆</em>
+        <span><i class="fa-solid fa-database col-cyan"></i> MySQL Database</span><em>◆</em>
+        <span><i class="fa-solid fa-video col-rose"></i> DaVinci Resolve</span><em>◆</em>
+        <span><i class="fa-solid fa-film col-violet"></i> Premiere Pro</span><em>◆</em>
+        <span><i class="fa-solid fa-wand-magic-sparkles col-rose"></i> After Effects</span><em>◆</em>
+        <span><i class="fa-brands fa-html5 col-gold"></i> HTML5 &amp; CSS3</span><em>◆</em>
+        <span><i class="fa-solid fa-language col-emerald"></i> Amharic ⇄ English</span><em>◆</em>
+        <span><i class="fa-brands fa-git-alt col-rose"></i> Git &amp; GitHub</span><em>◆</em>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT SECTION & BENTO GRID
+       ============================================================ -->
+  <section class="section" id="about" aria-labelledby="aboutTitle">
+    <header class="section__head reveal">
+      <span class="section__num col-cyan" data-i18n="sec_about_num">01 — Identity &amp; Craft</span>
+      <h2 class="section__title" id="aboutTitle" data-i18n="sec_about_title">
+        Where engineering precision meets visual storytelling and bilingual authenticity.
+      </h2>
+      <p class="section__lead" data-i18n="sec_about_lead">
+        I combine computer science rigor, video post-production mastery, and certified localization expertise to provide cohesive, end-to-end execution for digital initiatives.
+      </p>
+    </header>
+
+    <!-- Bento Grid -->
+    <div class="bento-grid">
+      <!-- Narrative Card -->
+      <article class="bento-card bento-card--large reveal" data-tilt>
+        <div class="bento-card__badge"><i class="fa-solid fa-graduation-cap col-violet"></i> <span data-i18n="bento_bio_badge">Background &amp; Philosophy</span></div>
+        <h3 class="bento-card__title" data-i18n="bento_bio_title">Computer Science Scholar &amp; Full-Stack Builder</h3>
+        <p class="bento-card__text" data-i18n="bento_bio_p1">
+          Currently pursuing my degree in <strong>Computer Science at Wolkite University</strong>, I have spent the last three years building real-world software, directing and editing high-retention video content, optimizing data pipelines, and bridging language barriers across Ethiopian and international markets.
+        </p>
+        <p class="bento-card__text" data-i18n="bento_bio_p2">
+          I started coding to build the tools I wished existed. I fell in love with editing because pacing and sound shape how humans feel and decide. And I translate because growing up bilingual allows me to preserve nuanced cultural context that machine translation consistently loses.
+        </p>
+        <div class="bento-signature">
+          <div class="bento-signature__avatar">
+            <img src="assets/images/avatar.jpg" alt="Tamirat Signature Icon"
+                 onerror="this.onerror=null;this.src='assets/images/profile1.jpg';">
+          </div>
+          <div>
+            <strong class="col-cyan" data-i18n="hero_name">Tamirat Alemu</strong>
+            <span data-i18n="bento_sig_title">Wolkite University · Web Developer &amp; Video Editor</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Wolkite Clock & Availability Card -->
+      <article class="bento-card bento-card--clock reveal" data-tilt>
+        <div class="bento-card__badge"><i class="fa-regular fa-clock col-cyan"></i> <span data-i18n="bento_clock_badge">Local Time &amp; Zone</span></div>
+        <div class="bento-clock">
+          <div class="bento-clock__time gradient-text-cyan-violet" id="bentoClockTime">--:--:--</div>
+          <div class="bento-clock__zone">East Africa Time · UTC+3</div>
+          <div class="bento-clock__loc"><i class="fa-solid fa-location-dot col-rose"></i> Wolkite University, Ethiopia</div>
+        </div>
+        <div class="bento-clock__status">
+          <span class="status-dot"></span>
+          <span data-i18n="bento_clock_status">Active &amp; Responding within 12h</span>
+        </div>
+      </article>
+
+      <!-- Factsheet Matrix Card -->
+      <article class="bento-card bento-card--facts reveal" data-tilt>
+        <div class="bento-card__badge"><i class="fa-solid fa-address-card col-emerald"></i> <span data-i18n="bento_facts_badge">Quick Factsheet</span></div>
+        <ul class="fact-list">
+          <li><span>Location</span><strong>Wolkite, Ethiopia</strong></li>
+          <li><span>Institution</span><strong>Wolkite University (CS)</strong></li>
+          <li><span>Languages</span><strong>Amharic (Native) · English (Fluent)</strong></li>
+          <li><span>Status</span><strong class="fact-status col-emerald">● Accepting New Contracts</strong></li>
+        </ul>
+      </article>
+
+      <!-- Interactive Developer Terminal Card -->
+      <article class="bento-card bento-card--wide bento-card--terminal reveal" id="devTerminalCard">
+        <div class="terminal-bar">
+          <div class="terminal-dots">
+            <span class="tdot tdot--red"></span>
+            <span class="tdot tdot--yellow"></span>
+            <span class="tdot tdot--green"></span>
+          </div>
+          <div class="terminal-title"><i class="fa-solid fa-terminal col-cyan"></i> tamirat@wolkite-server:~ (Interactive Console)</div>
+          <div class="terminal-badge">bash · utf-8</div>
+        </div>
+        <div class="terminal-body" id="terminalOutput">
+          <div class="t-line t-dim">// Welcome to Tamirat OS Console v3.0.0</div>
+          <div class="t-line t-dim">// Type a command or click a quick input pill below:</div>
+          <div class="t-line"><span class="t-prompt">guest@tamirat:~$</span> <span class="t-cmd">help</span></div>
+          <div class="t-res">
+Available commands:
+  <strong class="t-hl">bio</strong>        — Summary, education &amp; background
+  <strong class="t-hl">skills</strong>     — Core technical stack breakdown
+  <strong class="t-hl">projects</strong>   — Flagship production systems
+  <strong class="t-hl">contact</strong>    — Direct channels &amp; email
+  <strong class="t-hl">cv</strong>         — Instant résumé viewer &amp; download
+  <strong class="t-hl">lang</strong>       — Toggle Amharic / English mode
+  <strong class="t-hl">hire</strong>       — Open project inquiry booking
+  <strong class="t-hl">clear</strong>      — Clean console terminal
+          </div>
+        </div>
+        <div class="terminal-input-bar">
+          <span class="t-prompt">guest@tamirat:~$</span>
+          <input type="text" id="terminalInput" placeholder="Type command here (e.g. 'bio', 'skills', 'projects', 'lang', 'hire')..." autocomplete="off" spellcheck="false">
+          <button class="terminal-submit" id="terminalRunBtn"><i class="fa-solid fa-arrow-turn-down"></i></button>
+        </div>
+        <div class="terminal-quick-pills">
+          <span data-i18n="term_quick_label">Quick inputs:</span>
+          <button class="term-pill" data-term="bio">bio</button>
+          <button class="term-pill" data-term="skills">skills</button>
+          <button class="term-pill" data-term="projects">projects</button>
+          <button class="term-pill" data-term="contact">contact</button>
+          <button class="term-pill" data-term="cv">cv</button>
+          <button class="term-pill" data-term="lang">lang</button>
+          <button class="term-pill" data-term="hire">sudo hire tamirat</button>
+        </div>
+      </article>
+    </div>
+
+    <!-- Core Values Cards with Glowing Borders -->
+    <div class="values-grid">
+      <article class="value-card reveal" data-tilt>
+        <div class="value-card__icon value-card__icon--violet"><i class="fa-solid fa-bolt-lightning"></i></div>
+        <h4 class="value-card__title" data-i18n="val1_title">Engineered for Velocity</h4>
+        <p class="value-card__text" data-i18n="val1_desc">Agile turnaround without architectural compromise. Clean, scalable, well-documented code delivered on or before deadlines.</p>
+      </article>
+
+      <article class="value-card reveal" data-tilt>
+        <div class="value-card__icon value-card__icon--cyan"><i class="fa-solid fa-shield-halved"></i></div>
+        <h4 class="value-card__title" data-i18n="val2_title">Production Reliability</h4>
+        <p class="value-card__text" data-i18n="val2_desc">Zero dropped database transactions, zero broken links, and rigorous cross-device testing before any client handoff.</p>
+      </article>
+
+      <article class="value-card reveal" data-tilt>
+        <div class="value-card__icon value-card__icon--rose"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <h4 class="value-card__title" data-i18n="val3_title">Meticulous Polish</h4>
+        <p class="value-card__text" data-i18n="val3_desc">Smooth animations, tactile micro-interactions, cinematic sound design, and color-accurate grading that elevates user trust.</p>
+      </article>
+
+      <article class="value-card reveal" data-tilt>
+        <div class="value-card__icon value-card__icon--emerald"><i class="fa-solid fa-handshake-angle"></i></div>
+        <h4 class="value-card__title" data-i18n="val4_title">Clear Communication</h4>
+        <p class="value-card__text" data-i18n="val4_desc">Direct partner collaboration with regular milestone demos, transparent trade-offs, and zero corporate red tape.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROGRAMMING LANGUAGES & TECHNICAL MATRIX (BUTTON-BASED)
+       ============================================================ -->
+  <section class="section" id="languages" aria-labelledby="languagesTitle">
+    <header class="section__head reveal">
+      <span class="section__num col-violet" data-i18n="sec_langs_num">02 — Languages &amp; Stacks</span>
+      <h2 class="section__title" id="languagesTitle" data-i18n="sec_langs_title">
+        Polyglot Engineering &amp; High-Performance Tooling
+      </h2>
+      <p class="section__lead" data-i18n="sec_langs_lead">
+        Click any technology button below to inspect syntax competencies, runtime frameworks, and architectural use cases.
+      </p>
+    </header>
+
+    <!-- Language Filter Button Tabs -->
+    <div class="tech-filter-row reveal">
+      <button class="tech-filter-btn is-active" data-tech-filter="all" data-i18n="tech_filter_all">All Tech</button>
+      <button class="tech-filter-btn" data-tech-filter="lang" data-i18n="tech_filter_lang">Programming Languages</button>
+      <button class="tech-filter-btn" data-tech-filter="web" data-i18n="tech_filter_web">Web &amp; Frameworks</button>
+      <button class="tech-filter-btn" data-tech-filter="media" data-i18n="tech_filter_media">Media &amp; Video</button>
+      <button class="tech-filter-btn" data-tech-filter="database" data-i18n="tech_filter_db">Databases &amp; OS</button>
+    </div>
+
+    <!-- Technology Interactive Grid -->
+    <div class="tech-buttons-grid reveal">
+      <!-- JavaScript / TypeScript -->
+      <button class="tech-button" data-tech-cat="lang" data-tech="javascript">
+        <div class="tech-button__icon"><i class="fa-brands fa-js col-gold"></i></div>
+        <div class="tech-button__text">
+          <strong>JavaScript (ES2024+)</strong>
+          <span>Async/Await · DOM · Node</span>
+        </div>
+        <span class="tech-button__level">92%</span>
+      </button>
+
+      <!-- Python -->
+      <button class="tech-button" data-tech-cat="lang" data-tech="python">
+        <div class="tech-button__icon"><i class="fa-brands fa-python col-cyan"></i></div>
+        <div class="tech-button__text">
+          <strong>Python 3</strong>
+          <span>Pandas · Automation · Scripting</span>
+        </div>
+        <span class="tech-button__level">85%</span>
+      </button>
+
+      <!-- PHP -->
+      <button class="tech-button" data-tech-cat="lang" data-tech="php">
+        <div class="tech-button__icon"><i class="fa-brands fa-php col-violet"></i></div>
+        <div class="tech-button__text">
+          <strong>PHP (OOP / MVC)</strong>
+          <span>APIs · Auth · PDO · Security</span>
+        </div>
+        <span class="tech-button__level">88%</span>
+      </button>
+
+      <!-- C++ -->
+      <button class="tech-button" data-tech-cat="lang" data-tech="cpp">
+        <div class="tech-button__icon"><i class="fa-solid fa-code col-rose"></i></div>
+        <div class="tech-button__text">
+          <strong>C++ / C</strong>
+          <span>Data Structures · Algorithms</span>
+        </div>
+        <span class="tech-button__level">80%</span>
+      </button>
+
+      <!-- React.js -->
+      <button class="tech-button" data-tech-cat="web" data-tech="react">
+        <div class="tech-button__icon"><i class="fa-brands fa-react col-cyan"></i></div>
+        <div class="tech-button__text">
+          <strong>React.js</strong>
+          <span>Hooks · State · Components</span>
+        </div>
+        <span class="tech-button__level">82%</span>
+      </button>
+
+      <!-- MySQL -->
+      <button class="tech-button" data-tech-cat="database" data-tech="mysql">
+        <div class="tech-button__icon"><i class="fa-solid fa-database col-gold"></i></div>
+        <div class="tech-button__text">
+          <strong>MySQL &amp; SQL</strong>
+          <span>Relational Schema · Indexing</span>
+        </div>
+        <span class="tech-button__level">86%</span>
+      </button>
+
+      <!-- HTML5 / CSS3 / SCSS -->
+      <button class="tech-button" data-tech-cat="web" data-tech="htmlcss">
+        <div class="tech-button__icon"><i class="fa-brands fa-html5 col-rose"></i></div>
+        <div class="tech-button__text">
+          <strong>HTML5 &amp; Modern CSS</strong>
+          <span>Grid · Flexbox · Animations</span>
+        </div>
+        <span class="tech-button__level">95%</span>
+      </button>
+
+      <!-- DaVinci Resolve -->
+      <button class="tech-button" data-tech-cat="media" data-tech="davinci">
+        <div class="tech-button__icon"><i class="fa-solid fa-video col-rose"></i></div>
+        <div class="tech-button__text">
+          <strong>DaVinci Resolve Studio</strong>
+          <span>Color Grading · Nodes · Rec.709</span>
+        </div>
+        <span class="tech-button__level">86%</span>
+      </button>
+
+      <!-- Adobe Premiere Pro -->
+      <button class="tech-button" data-tech-cat="media" data-tech="premiere">
+        <div class="tech-button__icon"><i class="fa-solid fa-film col-violet"></i></div>
+        <div class="tech-button__text">
+          <strong>Adobe Premiere Pro</strong>
+          <span>Pacing · Multi-Track · YouTube</span>
+        </div>
+        <span class="tech-button__level">92%</span>
+      </button>
+
+      <!-- After Effects -->
+      <button class="tech-button" data-tech-cat="media" data-tech="aftereffects">
+        <div class="tech-button__icon"><i class="fa-solid fa-wand-magic-sparkles col-cyan"></i></div>
+        <div class="tech-button__text">
+          <strong>Adobe After Effects</strong>
+          <span>Motion Graphics · Lower Thirds</span>
+        </div>
+        <span class="tech-button__level">76%</span>
+      </button>
+
+      <!-- Bash / Linux CLI -->
+      <button class="tech-button" data-tech-cat="database" data-tech="bash">
+        <div class="tech-button__icon"><i class="fa-solid fa-terminal col-emerald"></i></div>
+        <div class="tech-button__text">
+          <strong>Bash / Linux OS</strong>
+          <span>Shell Scripting · Deployment</span>
+        </div>
+        <span class="tech-button__level">82%</span>
+      </button>
+
+      <!-- Git & GitHub -->
+      <button class="tech-button" data-tech-cat="database" data-tech="git">
+        <div class="tech-button__icon"><i class="fa-brands fa-git-alt col-rose"></i></div>
+        <div class="tech-button__text">
+          <strong>Git &amp; GitHub</strong>
+          <span>Branching · Merges · CI/CD</span>
+        </div>
+        <span class="tech-button__level">88%</span>
+      </button>
+    </div>
+
+    <!-- Interactive Visual Stack Mastery Showcase (Zero Raw Code — Bold Animated Dashboard) -->
+    <div class="tech-spotlight-card reveal" id="techSpotlightCard">
+      <div class="tech-spotlight__ambient" aria-hidden="true"></div>
+
+      <div class="tech-spotlight__top">
+        <div class="tech-spotlight__identity">
+          <div class="tech-spotlight__icon" id="techSpotlightIcon">
+            <i class="fa-brands fa-js col-gold"></i>
+          </div>
+          <div>
+            <span class="tech-spotlight__category" id="techSpotlightCategory">CORE PROGRAMMING LANGUAGE</span>
+            <h3 class="tech-spotlight__title gradient-text-animated" id="techSpotlightTitle">JavaScript (ES2024+)</h3>
+          </div>
+        </div>
+
+        <div class="tech-spotlight__meter-wrap">
+          <div class="tech-spotlight__meter-labels">
+            <span data-i18n="tech_mastery_label">Mastery Level</span>
+            <strong class="col-cyan" id="techSpotlightLevel">92%</strong>
+          </div>
+          <div class="tech-spotlight__bar">
+            <span id="techSpotlightBar" style="width: 92%;"></span>
+          </div>
+        </div>
+      </div>
+
+      <p class="tech-spotlight__summary" id="techSpotlightSummary">
+        Building <strong class="col-cyan">reactive web interfaces</strong>, asynchronous API workflows, interactive data visualizations, and responsive front-end engines with <strong class="col-emerald">zero third-party bloat</strong>.
+      </p>
+
+      <div class="tech-spotlight__pillars" id="techSpotlightPillars">
+        <span class="spotlight-pillar spotlight-pillar--cyan"><i class="fa-solid fa-bolt"></i> Async APIs &amp; Real-Time Updates</span>
+        <span class="spotlight-pillar spotlight-pillar--violet"><i class="fa-solid fa-wand-magic-sparkles"></i> Interactive UI Animations</span>
+        <span class="spotlight-pillar spotlight-pillar--emerald"><i class="fa-solid fa-shield-check"></i> Production Performance</span>
+      </div>
+
+      <div class="tech-spotlight__footer">
+        <div class="tech-spotlight__impact">
+          <i class="fa-solid fa-rocket col-gold"></i>
+          <span><strong class="col-gold" data-i18n="tech_applied_label">Applied In:</strong> <strong id="techSpotlightProject" class="col-bright">University Online Voting System &amp; Ethio-Weather App</strong></span>
+        </div>
+        <a href="#work" class="btn btn--primary btn--sm btn--shine" data-section="work">
+          <span data-i18n="hero_cta_work">Explore Shipped Systems</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVICES SECTION & SCOPE ESTIMATOR
+       ============================================================ -->
+  <section class="section" id="services" aria-labelledby="servicesTitle">
+    <header class="section__head reveal">
+      <span class="section__num col-cyan" data-i18n="sec_services_num">03 — Services &amp; Capabilities</span>
+      <h2 class="section__title" id="servicesTitle" data-i18n="sec_services_title">
+        Four focused disciplines. One reliable development partner.
+      </h2>
+      <p class="section__lead" data-i18n="sec_services_lead">
+        From architecting secure full-stack web applications to editing high-retention commercial films and translating software strings for Ethiopian audiences.
+      </p>
+    </header>
+
+    <div class="services-grid">
+      <!-- Service 1: Web Development -->
+      <article class="service-card reveal" data-tilt data-service="Web Development">
+        <div class="service-card__top">
+          <span class="service-card__num">01</span>
+          <div class="service-card__icon service-card__icon--violet"><i class="fa-solid fa-code"></i></div>
+        </div>
+        <h3 class="service-card__title" data-i18n="srv1_title">Full-Stack Web Development</h3>
+        <p class="service-card__desc" data-i18n="srv1_desc">
+          Modern marketing websites, institutional portals, and reactive web applications engineered with clean code, rock-solid security, and responsive layouts.
+        </p>
+        <ul class="service-card__list">
+          <li><i class="fa-solid fa-check col-emerald"></i> <span data-i18n="srv1_f1">Responsive SPAs with React.js &amp; Modern JS</span></li>
+          <li><i class="fa-solid fa-check col-emerald"></i> <span data-i18n="srv1_f2">PHP Backend Architectures &amp; Relational MySQL</span></li>
+          <li><i class="fa-solid fa-check col-emerald"></i> <span data-i18n="srv1_f3">Role-Based Access Control &amp; Secure Session Auth</span></li>
+          <li><i class="fa-solid fa-check col-emerald"></i> <span data-i18n="srv1_f4">RESTful API Design &amp; Third-Party Integrations</span></li>
+        </ul>
+        <button class="btn-text service-book-btn" data-target-service="Web Development">
+          <span data-i18n="srv_book_btn">Book Web Development</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </article>
+
+      <!-- Service 2: Video Editing -->
+      <article class="service-card reveal" data-tilt data-service="Video Editing">
+        <div class="service-card__top">
+          <span class="service-card__num">02</span>
+          <div class="service-card__icon service-card__icon--cyan"><i class="fa-solid fa-film"></i></div>
+        </div>
+        <h3 class="service-card__title" data-i18n="srv2_title">Cinematic Video Post-Production</h3>
+        <p class="service-card__desc" data-i18n="srv2_desc">
+          High-retention editing built to capture and hold viewer attention. Mastered color grading, tailored sound design, and kinetic motion graphics for brands and creators.
+        </p>
+        <ul class="service-card__list">
+          <li><i class="fa-solid fa-check col-cyan"></i> <span data-i18n="srv2_f1">YouTube Long-Form Series &amp; Viral Shorts / Reels</span></li>
+          <li><i class="fa-solid fa-check col-cyan"></i> <span data-i18n="srv2_f2">Commercial Brand Promos &amp; Product Spotlights</span></li>
+          <li><i class="fa-solid fa-check col-cyan"></i> <span data-i18n="srv2_f3">DaVinci Resolve Studio Color Grading (Rec.709 / HDR)</span></li>
+          <li><i class="fa-solid fa-check col-cyan"></i> <span data-i18n="srv2_f4">Custom Foley Sound Design &amp; Multi-Track Mixing</span></li>
+        </ul>
+        <button class="btn-text service-book-btn" data-target-service="Video Editing">
+          <span data-i18n="srv_book_btn">Book Video Editing</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </article>
+
+      <!-- Service 3: Data Automation -->
+      <article class="service-card reveal" data-tilt data-service="Data Automation">
+        <div class="service-card__top">
+          <span class="service-card__num">03</span>
+          <div class="service-card__icon service-card__icon--emerald"><i class="fa-solid fa-database"></i></div>
+        </div>
+        <h3 class="service-card__title" data-i18n="srv3_title">Data Automation &amp; Python Pipelines</h3>
+        <p class="service-card__desc" data-i18n="srv3_desc">
+          Automate repetitive spreadsheet tasks and sanitize corrupted enterprise datasets with Python. Transform hours of manual labor into instant automated scripts.
+        </p>
+        <ul class="service-card__list">
+          <li><i class="fa-solid fa-check col-emerald"></i> <span data-i18n="srv3_f1">Python &amp; Pandas Vectorized Cleaning Pipelines</span></li>
+          <li><i class="fa-solid fa-check col-emerald"></i> <span data-i18n="srv3_f2">CSV, JSON, and Relational SQL Data Migrations</span></li>
+          <li><i class="fa-solid fa-check col-emerald"></i> <span data-i18n="srv3_f3">Deduplication, Formatting &amp; Regex Sanitization</span></li>
+          <li><i class="fa-solid fa-check col-emerald"></i> <span data-i18n="srv3_f4">Excel &amp; Google Sheets Script Automation</span></li>
+        </ul>
+        <button class="btn-text service-book-btn" data-target-service="Data Automation">
+          <span data-i18n="srv_book_btn">Book Data Automation</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </article>
+
+      <!-- Service 4: Amharic Translation -->
+      <article class="service-card reveal" data-tilt data-service="Amharic Translation">
+        <div class="service-card__top">
+          <span class="service-card__num">04</span>
+          <div class="service-card__icon service-card__icon--rose"><i class="fa-solid fa-language"></i></div>
+        </div>
+        <h3 class="service-card__title" data-i18n="srv4_title">Amharic ⇄ English Localization</h3>
+        <p class="service-card__desc" data-i18n="srv4_desc">
+          Native, culturally authentic translation — never robotic machine output. Ideal for software localization, legal contracts, business proposals, and video subtitles.
+        </p>
+        <ul class="service-card__list">
+          <li><i class="fa-solid fa-check col-rose"></i> <span data-i18n="srv4_f1">Software &amp; Mobile Application UI String Localization</span></li>
+          <li><i class="fa-solid fa-check col-rose"></i> <span data-i18n="srv4_f2">Legal Contracts, Corporate Charters &amp; Business Proposals</span></li>
+          <li><i class="fa-solid fa-check col-rose"></i> <span data-i18n="srv4_f3">Timecoded Video Subtitling (SRT/VTT) &amp; Voiceover Scripts</span></li>
+          <li><i class="fa-solid fa-check col-rose"></i> <span data-i18n="srv4_f4">Ethiopian Cultural Tone &amp; Nuance Adaptation</span></li>
+        </ul>
+        <button class="btn-text service-book-btn" data-target-service="Amharic Translation">
+          <span data-i18n="srv_book_btn">Book Translation</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </article>
+    </div>
+
+    <!-- Interactive Scope & Estimator Calculator -->
+    <div class="scope-estimator reveal" id="projectCalculator">
+      <div class="scope-estimator__head">
+        <div class="scope-badge"><i class="fa-solid fa-calculator col-cyan"></i> <span data-i18n="calc_badge">Interactive Project Estimator</span></div>
+        <h3 class="scope-title" data-i18n="calc_title">Estimate Your Project Scope &amp; Timeline</h3>
+        <p class="scope-desc" data-i18n="calc_desc">Select your desired project deliverables and delivery timeline to preview your project blueprint and pre-fill your inquiry.</p>
+      </div>
+
+      <div class="scope-estimator__body">
+        <div class="scope-options">
+          <span class="scope-label" data-i18n="calc_lbl_deliverables">Select Deliverables:</span>
+          <div class="scope-checkboxes">
+            <label class="scope-check">
+              <input type="checkbox" id="calcWeb" value="Web App" checked>
+              <span class="scope-box"><i class="fa-solid fa-check"></i></span>
+              <span class="scope-text" data-i18n="calc_opt_web">Full-Stack Web App / Website</span>
+            </label>
+            <label class="scope-check">
+              <input type="checkbox" id="calcVideo" value="Video Production">
+              <span class="scope-box"><i class="fa-solid fa-check"></i></span>
+              <span class="scope-text" data-i18n="calc_opt_video">Cinematic Video Editing &amp; Grading</span>
+            </label>
+            <label class="scope-check">
+              <input type="checkbox" id="calcData" value="Data Automation">
+              <span class="scope-box"><i class="fa-solid fa-check"></i></span>
+              <span class="scope-text" data-i18n="calc_opt_data">Python Data Pipeline / Cleanup</span>
+            </label>
+            <label class="scope-check">
+              <input type="checkbox" id="calcTrans" value="Localization">
+              <span class="scope-box"><i class="fa-solid fa-check"></i></span>
+              <span class="scope-text" data-i18n="calc_opt_trans">Amharic ⇄ English Localization</span>
+            </label>
+          </div>
+
+          <span class="scope-label" style="margin-top:1.4rem;" data-i18n="calc_lbl_urgency">Timeline Urgency:</span>
+          <div class="scope-radios">
+            <label class="scope-radio">
+              <input type="radio" name="calcUrgency" value="Standard" checked>
+              <span data-i18n="calc_urg_standard">Standard Turnaround (2–3 Weeks)</span>
+            </label>
+            <label class="scope-radio">
+              <input type="radio" name="calcUrgency" value="Priority">
+              <span data-i18n="calc_urg_priority">Priority Delivery (1–2 Weeks)</span>
+            </label>
+            <label class="scope-radio">
+              <input type="radio" name="calcUrgency" value="Sprint">
+              <span data-i18n="calc_urg_sprint">Emergency Sprint (Under 7 Days)</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="scope-summary">
+          <div class="blueprint-card">
+            <div class="blueprint-card__tag" data-i18n="calc_blueprint_tag">Calculated Blueprint</div>
+            <div class="blueprint-card__time" id="calcTimelineDisplay">Estimated Turnaround: ~14 Business Days</div>
+            <div class="blueprint-card__items" id="calcDeliverablesSummary">
+              <span>• Full-Stack Responsive Application</span>
+              <span>• Complete Source Code &amp; Database Schema</span>
+            </div>
+            <div class="blueprint-card__perks">
+              <span><i class="fa-solid fa-shield-halved col-emerald"></i> 100% Quality &amp; Bug-Free Guarantee</span>
+              <span><i class="fa-solid fa-headset col-cyan"></i> Dedicated Post-Launch Support</span>
+            </div>
+            <button class="btn btn--primary btn--block btn--shine" id="calcApplyToForm">
+              <span data-i18n="calc_apply_btn">Request This Scope Now</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SELECTED WORK SECTION — ALL REAL SCREENSHOTS & MODALS
+       ============================================================ -->
+  <section class="section" id="work" aria-labelledby="workTitle">
+    <header class="section__head reveal">
+      <span class="section__num col-cyan" data-i18n="sec_work_num">04 — Shipped Systems &amp; Media</span>
+      <h2 class="section__title" id="workTitle" data-i18n="sec_work_title">
+        Production-grade systems shipped and verified in the real world.
+      </h2>
+      <p class="section__lead" data-i18n="sec_work_lead">
+        Explore a curated selection of full-stack platforms, client projects, and media productions. Click on any project card to open the complete case study.
+      </p>
+    </header>
+
+    <!-- Work Filter Chips -->
+    <div class="filters reveal" role="tablist" aria-label="Filter projects">
+      <button class="chip is-active" data-filter="all" role="tab" aria-selected="true"><i class="fa-solid fa-grid-2"></i> <span data-i18n="filter_all">All Projects</span></button>
+      <button class="chip" data-filter="web" role="tab" aria-selected="false"><i class="fa-solid fa-code"></i> <span data-i18n="filter_web">Web &amp; Apps</span></button>
+      <button class="chip" data-filter="video" role="tab" aria-selected="false"><i class="fa-solid fa-film"></i> <span data-i18n="filter_video">Video &amp; Motion</span></button>
+      <button class="chip" data-filter="data" role="tab" aria-selected="false"><i class="fa-solid fa-database"></i> <span data-i18n="filter_data">Data &amp; Python</span></button>
+    </div>
+
+    <!-- Featured Flagship Project: Online Voting System -->
+    <article class="featured-project reveal" data-cat="web" data-project-id="voting-system">
+      <div class="featured-project__media">
+        <div class="featured-project__overlay">
+          <button class="featured-project__zoom-btn" type="button" aria-label="Inspect Case Study">
+            <i class="fa-solid fa-expand"></i>
+            <span data-i18n="inspect_case_btn">Inspect Full Case Study</span>
+          </button>
+        </div>
+        <img src="assets/images/project1.png" alt="Online Voting System for University Student Councils">
+      </div>
+      <div class="featured-project__body">
+        <div class="featured-project__badges">
+          <span class="badge badge--emerald"><i class="fa-solid fa-star"></i> <span data-i18n="feat_flagship">Flagship University System</span></span>
+          <span class="badge badge--violet"><i class="fa-solid fa-shield-check"></i> Deployed in Production</span>
+        </div>
+        <h3 class="featured-project__title" data-i18n="proj1_title">Online Voting System for University Student Councils</h3>
+        <p class="featured-project__desc" data-i18n="proj1_desc">
+          A secure, fault-tolerant e-voting web system engineered for Wolkite University student council elections. Engineered to support 300+ concurrent student voters, instantaneous cryptographic tallying, multi-role administration, and a tamper-evident audit ledger.
+        </p>
+        <ul class="featured-project__meta">
+          <li><i class="fa-solid fa-circle-check col-cyan"></i> <strong data-i18n="proj1_m1">300+ concurrent student voters</strong> with zero dropped ballots</li>
+          <li><i class="fa-solid fa-circle-check col-cyan"></i> <strong data-i18n="proj1_m2">Live election dashboard</strong> with real-time participation charts</li>
+          <li><i class="fa-solid fa-circle-check col-cyan"></i> <strong data-i18n="proj1_m3">Cryptographic ballot hashing</strong> preventing duplicate vote casting</li>
+          <li><i class="fa-solid fa-circle-check col-cyan"></i> <strong data-i18n="proj1_m4">Multi-tier role management</strong> for admins, observers &amp; voters</li>
+        </ul>
+        <div class="project-tags">
+          <span>PHP</span><span>MySQL</span><span>JavaScript</span><span>Bootstrap</span><span>Security Hashing</span>
+        </div>
+        <div class="featured-project__actions">
+          <button class="btn btn--primary open-case-study-btn btn--shine" data-project="voting-system" type="button">
+            <span data-i18n="btn_read_case">Read Complete Case Study</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <a href="https://github.com/Tamirat-CS" target="_blank" rel="noopener" class="btn btn--outline" title="GitHub Codebase">
+            <i class="fa-brands fa-github"></i>
+            <span>GitHub Repository</span>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Work Projects Grid (All with real images & deep modals) -->
+    <div class="work-grid">
+      <!-- Project 2: Student Result Management System -->
+      <article class="work-card reveal" data-cat="web" data-project-id="student-result">
+        <div class="work-card__media">
+          <img src="assets/images/project2.png" alt="Student Result Management System UI" loading="lazy">
+          <div class="work-card__media-overlay">
+            <span class="work-card__tag"><i class="fa-solid fa-graduation-cap col-violet"></i> Enterprise Portal</span>
+            <button class="work-card__view-btn" type="button"><i class="fa-solid fa-eye"></i> <span data-i18n="btn_view_study">View Case Study</span></button>
+          </div>
+        </div>
+        <div class="work-card__body">
+          <span class="work-card__category col-cyan" data-i18n="cat_portal">Institutional Portal</span>
+          <h3 class="work-card__title" data-i18n="proj2_title">Student Result Management System</h3>
+          <p class="work-card__desc" data-i18n="proj2_desc">
+            Complete institutional grading, automated GPA computation, and student report card generation for 320+ students. Eliminated weeks of manual paper record-keeping.
+          </p>
+          <div class="project-tags">
+            <span>PHP</span><span>MySQL</span><span>Relational DB</span><span>Bootstrap</span>
+          </div>
+          <button class="btn-text open-case-study-btn" data-project="student-result" type="button">
+            <span data-i18n="btn_inspect_system">Inspect System</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </article>
+
+      <!-- Project 3: TaskFlow Offline-First Task Manager -->
+      <article class="work-card reveal" data-cat="web" data-project-id="taskflow">
+        <div class="work-card__media">
+          <img src="assets/images/project3.png" alt="TaskFlow Application Interface" loading="lazy">
+          <div class="work-card__media-overlay">
+            <span class="work-card__tag"><i class="fa-solid fa-list-check col-cyan"></i> React Application</span>
+            <button class="work-card__view-btn" type="button"><i class="fa-solid fa-eye"></i> <span data-i18n="btn_view_study">View Case Study</span></button>
+          </div>
+        </div>
+        <div class="work-card__body">
+          <span class="work-card__category col-cyan" data-i18n="cat_spa">React Single-Page App</span>
+          <h3 class="work-card__title" data-i18n="proj3_title">TaskFlow — Offline-First Task Manager</h3>
+          <p class="work-card__desc" data-i18n="proj3_desc">
+            Kanban productivity application engineered with offline-first persistence. Features drag-and-drop task prioritization, tag filtering, and instant state synchronization.
+          </p>
+          <div class="project-tags">
+            <span>React.js</span><span>LocalStorage</span><span>CSS Grid</span><span>Drag &amp; Drop</span>
+          </div>
+          <button class="btn-text open-case-study-btn" data-project="taskflow" type="button">
+            <span data-i18n="btn_inspect_system">Inspect System</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </article>
+
+      <!-- Project 4: Ethio-Weather City Forecast -->
+      <article class="work-card reveal" data-cat="web" data-project-id="ethio-weather">
+        <div class="work-card__media">
+          <img src="assets/images/project4.png" alt="Ethio-Weather Mobile Forecast Application" loading="lazy">
+          <div class="work-card__media-overlay">
+            <span class="work-card__tag"><i class="fa-solid fa-cloud-sun col-gold"></i> Weather API</span>
+            <button class="work-card__view-btn" type="button"><i class="fa-solid fa-eye"></i> <span data-i18n="btn_view_study">View Case Study</span></button>
+          </div>
+        </div>
+        <div class="work-card__body">
+          <span class="work-card__category col-cyan" data-i18n="cat_api">REST API Web App</span>
+          <h3 class="work-card__title" data-i18n="proj4_title">Ethio-Weather — Ethiopian Cities Forecast</h3>
+          <p class="work-card__desc" data-i18n="proj4_desc">
+            Real-time weather tracking across Ethiopian cities utilizing OpenWeather API. Features multi-day forecast charts, low-bandwidth data optimization, and responsive mobile layout.
+          </p>
+          <div class="project-tags">
+            <span>JavaScript</span><span>REST APIs</span><span>CSS3 Animations</span><span>JSON</span>
+          </div>
+          <button class="btn-text open-case-study-btn" data-project="ethio-weather" type="button">
+            <span data-i18n="btn_inspect_system">Inspect System</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </article>
+
+      <!-- Project 5: Corporate Commercial Brand Film -->
+      <article class="work-card reveal" data-cat="video" data-project-id="brand-promo">
+        <div class="work-card__media work-card__media--video">
+          <div class="video-preview-box">
+            <div class="video-preview-badge">16:9 4K HDR MASTER</div>
+            <div class="video-play-orb"><i class="fa-solid fa-play"></i></div>
+            <div class="waveform-anim">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="work-card__media-overlay">
+            <span class="work-card__tag"><i class="fa-solid fa-film col-rose"></i> Commercial Reel</span>
+            <button class="work-card__view-btn" type="button"><i class="fa-solid fa-play"></i> <span data-i18n="btn_watch_reel">Watch Video Reel</span></button>
+          </div>
+        </div>
+        <div class="work-card__body">
+          <span class="work-card__category col-rose" data-i18n="cat_video">Commercial Brand Film</span>
+          <h3 class="work-card__title" data-i18n="proj5_title">Corporate Commercial Brand Film</h3>
+          <p class="work-card__desc" data-i18n="proj5_desc">
+            A high-energy 90-second brand promotional film engineered with kinetic typography, seamless speed-ramps, custom Foley audio design, and DaVinci Resolve color grading.
+          </p>
+          <div class="project-tags">
+            <span>DaVinci Resolve</span><span>Premiere Pro</span><span>After Effects</span><span>Audio Mastering</span>
+          </div>
+          <button class="btn-text open-case-study-btn" data-project="brand-promo" type="button">
+            <span data-i18n="btn_view_reel">View Video Reel</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </article>
+
+      <!-- Project 6: Automated CSV Sanitization Pipeline -->
+      <article class="work-card reveal" data-cat="data" data-project-id="csv-pipeline">
+        <div class="work-card__media work-card__media--code">
+          <div class="data-pipeline-preview">
+            <div class="data-pipeline-orb"><i class="fa-brands fa-python"></i></div>
+            <div class="data-pipeline-flow">
+              <span class="dp-node">RAW CSV</span>
+              <i class="fa-solid fa-arrow-right col-cyan"></i>
+              <span class="dp-node dp-node--active">PANDAS</span>
+              <i class="fa-solid fa-arrow-right col-emerald"></i>
+              <span class="dp-node dp-node--done">CLEAN 100K+</span>
+            </div>
+            <div class="data-pipeline-stats">
+              <span class="dp-stat"><i class="fa-solid fa-bolt col-gold"></i> 40s Runtime</span>
+              <span class="dp-stat"><i class="fa-solid fa-check-double col-emerald"></i> 98% Faster</span>
+            </div>
+          </div>
+          <div class="work-card__media-overlay">
+            <span class="work-card__tag"><i class="fa-brands fa-python col-gold"></i> Python Pipeline</span>
+            <button class="work-card__view-btn" type="button"><i class="fa-solid fa-eye"></i> <span data-i18n="btn_view_study">View Case Study</span></button>
+          </div>
+        </div>
+        <div class="work-card__body">
+          <span class="work-card__category col-gold" data-i18n="cat_data">Python Automation</span>
+          <h3 class="work-card__title" data-i18n="proj6_title">Automated CSV Data Sanitization Engine</h3>
+          <p class="work-card__desc" data-i18n="proj6_desc">
+            Production Python utility utilizing Pandas to deduplicate, validate, and normalize enterprise CSV exports. Transformed a 4-hour manual process into an automated 40-second job.
+          </p>
+          <div class="project-tags">
+            <span>Python 3</span><span>Pandas</span><span>Regex Parsing</span><span>CLI Automation</span>
+          </div>
+          <button class="btn-text open-case-study-btn" data-project="csv-pipeline" type="button">
+            <span data-i18n="btn_inspect_pipeline">Inspect Pipeline</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </article>
+
+      <!-- Project 7: YouTube High-Retention Content -->
+      <article class="work-card reveal" data-cat="video" data-project-id="youtube-editing">
+        <div class="work-card__media work-card__media--yt">
+          <div class="yt-badge-box">
+            <div class="yt-icon"><i class="fa-brands fa-youtube"></i></div>
+            <div class="yt-stat-pill"><i class="fa-solid fa-chart-line col-emerald"></i> +45% Retention</div>
+            <div class="yt-views-pill">50,000+ Views</div>
+          </div>
+          <div class="work-card__media-overlay">
+            <span class="work-card__tag"><i class="fa-solid fa-clapperboard col-rose"></i> Creator Channel</span>
+            <button class="work-card__view-btn" type="button"><i class="fa-solid fa-play"></i> <span data-i18n="btn_watch_samples">Watch Samples</span></button>
+          </div>
+        </div>
+        <div class="work-card__body">
+          <span class="work-card__category col-rose" data-i18n="cat_creator">Creator Video Production</span>
+          <h3 class="work-card__title" data-i18n="proj7_title">High-Retention YouTube Content Production</h3>
+          <p class="work-card__desc" data-i18n="proj7_desc">
+            End-to-end video editing pipeline for prominent Ethiopian YouTube channels. Dynamic storytelling, engaging b-roll pacing, synchronized sound effects, and multi-platform Shorts cutdowns.
+          </p>
+          <div class="project-tags">
+            <span>Premiere Pro</span><span>Pacing Hooks</span><span>Sound FX</span><span>YouTube Growth</span>
+          </div>
+          <button class="btn-text open-case-study-btn" data-project="youtube-editing" type="button">
+            <span data-i18n="btn_explore_channel">Explore Video Work</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       INTERACTIVE BEFORE / AFTER VIDEO COLOR GRADING SLIDER
+       ============================================================ -->
+  <section class="section" id="video-studio" aria-labelledby="videoStudioTitle">
+    <header class="section__head reveal">
+      <span class="section__num col-rose" data-i18n="sec_video_num">05 — Post-Production Studio</span>
+      <h2 class="section__title" id="videoStudioTitle" data-i18n="sec_video_title">
+        Interactive Video Color Grading &amp; Mastering Demo
+      </h2>
+      <p class="section__lead" data-i18n="sec_video_lead">
+        Drag the interactive slider below to see the dramatic difference between flat raw camera log footage and my DaVinci Resolve color-graded master.
+      </p>
+    </header>
+
+    <div class="grading-slider-box reveal" id="gradingSliderBox">
+      <!-- After Image (Color Graded) -->
+      <div class="grading-slide grading-slide--after">
+        <img src="assets/images/profile1.jpg" alt="DaVinci Resolve Color Graded Master">
+        <span class="grading-badge grading-badge--after"><i class="fa-solid fa-wand-magic-sparkles col-cyan"></i> <span data-i18n="grade_after">Tamirat's Color Graded Master</span></span>
+      </div>
+
+      <!-- Before Image (Flat Log / desaturated) -->
+      <div class="grading-slide grading-slide--before" id="gradingBeforeSlide">
+        <img src="assets/images/profile1.jpg" alt="Raw Flat Camera Log Footage" class="raw-log-filter">
+        <span class="grading-badge grading-badge--before"><i class="fa-solid fa-camera col-amber"></i> <span data-i18n="grade_before">Raw Flat Camera Log</span></span>
+      </div>
+
+      <!-- Drag Handle -->
+      <div class="grading-handle" id="gradingHandle">
+        <div class="grading-handle__btn"><i class="fa-solid fa-left-right"></i></div>
+      </div>
+    </div>
+
+    <!-- Color Grading Specs -->
+    <div class="grading-specs reveal">
+      <div class="grading-spec"><i class="fa-solid fa-check col-emerald"></i> <strong>ACEScc &amp; Rec.709 Color Space</strong></div>
+      <div class="grading-spec"><i class="fa-solid fa-check col-emerald"></i> <strong>Skin Tone Vector Isolation</strong></div>
+      <div class="grading-spec"><i class="fa-solid fa-check col-emerald"></i> <strong>Halation &amp; Film Grain Emulation</strong></div>
+      <div class="grading-spec"><i class="fa-solid fa-check col-emerald"></i> <strong>Multi-Track Foley Audio Mastering</strong></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       AMHARIC ⇄ ENGLISH LOCALIZATION & NUANCE LAB
+       ============================================================ -->
+  <section class="section" id="translation-lab" aria-labelledby="transTitle">
+    <header class="section__head reveal">
+      <span class="section__num col-emerald" data-i18n="sec_trans_num">06 — Bilingual Mastery</span>
+      <h2 class="section__title" id="transTitle" data-i18n="sec_trans_title">
+        Amharic ⇄ English Translation &amp; Localization Lab
+      </h2>
+      <p class="section__lead" data-i18n="sec_trans_lead">
+        Machine translation consistently misses the idiomatic soul, honorific grammar, and technical context of the Amharic language. Here is a live demonstration of how I translate for maximum clarity and cultural impact.
+      </p>
+    </header>
+
+    <div class="trans-lab reveal">
+      <div class="trans-lab__tabs">
+        <button class="trans-tab is-active" data-trans-tab="tech"><i class="fa-solid fa-code col-cyan"></i> <span data-i18n="tab_tech">Tech &amp; UI Strings</span></button>
+        <button class="trans-tab" data-trans-tab="business"><i class="fa-solid fa-briefcase col-violet"></i> <span data-i18n="tab_legal">Legal &amp; Business</span></button>
+        <button class="trans-tab" data-trans-tab="media"><i class="fa-solid fa-clapperboard col-rose"></i> <span data-i18n="tab_media">Film Subtitles &amp; Media</span></button>
+        <button class="trans-tab" data-trans-tab="idioms"><i class="fa-solid fa-sparkles col-gold"></i> <span data-i18n="tab_idioms">Cultural Idioms</span></button>
+      </div>
+
+      <div class="trans-lab__card" id="transCard">
+        <div class="trans-lab__row">
+          <div class="trans-col">
+            <div class="trans-col__label"><i class="fa-solid fa-globe col-cyan"></i> English Source</div>
+            <blockquote class="trans-col__quote" id="transSourceText">
+              "Deploy scalable, mission-critical web applications with zero downtime and automated failover."
+            </blockquote>
+            <div class="trans-col__meta" id="transSourceMeta">Category: Software Architecture &amp; Cloud Systems</div>
+          </div>
+
+          <div class="trans-lab__arrow"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+
+          <div class="trans-col trans-col--target">
+            <div class="trans-col__label trans-col__label--target"><i class="fa-solid fa-certificate col-emerald"></i> Tamirat's Nuanced Amharic Translation</div>
+            <div class="trans-col__fidel" id="transTargetFidel">
+              "ያለ ምንም መቋረጥና በራሳቸው አደጋን መከላከል በሚችሉ ቴክኖሎጂዎች የታገዙ፣ መጠነ-ሰፊ እና እጅግ ወሳኝ የሆኑ የድር መተግበሪያዎችን ያከናውኑ።"
+            </div>
+
+            <div class="trans-col__label trans-col__label--target" style="margin-top: 1.2rem;"><i class="fa-solid fa-tree col-cyan"></i> Tamirat's Authentic Afaan Oromoo Translation</div>
+            <div class="trans-col__fidel" id="transTargetOromo" style="font-family: var(--font-sans); font-size: 1.15rem; color: var(--cyan);">
+              "Websaayitoota gurguddoo fi bu'uuraa dogoggora tokko malee ofumaan balaa ittisan saffisaan hojiirra oolchaa."
+            </div>
+
+            <div class="trans-col__phonetic" id="transTargetPhonetic">
+              Phonetic: <em>"Yale minim meqwaretna berasa chew adegan mekelakel bemichilu tecnologyoch..."</em>
+            </div>
+            <div class="trans-col__note" id="transTargetNote">
+              <i class="fa-solid fa-circle-info col-amber"></i> <strong>Context Note:</strong> Replaces literal robotic output with natural Ethiopian tech terminology that resonates with engineering teams across Amharic &amp; Afaan Oromoo.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="trans-lab__cta">
+        <span data-i18n="trans_cta_prompt">Need software strings, documentation, or video subtitles localized into Amharic?</span>
+        <button class="btn btn--outline btn--sm service-book-btn" data-target-service="Amharic Translation">
+          <span data-i18n="trans_cta_btn">Inquire About Translation</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT SECTION
+       ============================================================ -->
+  <section class="section" id="contact" aria-labelledby="contactTitle">
+    <header class="section__head reveal">
+      <span class="section__num col-violet" data-i18n="sec_contact_num">07 — Collaboration</span>
+      <h2 class="section__title" id="contactTitle" data-i18n="sec_contact_title">
+        Let's build something exceptional together.
+      </h2>
+      <p class="section__lead" data-i18n="sec_contact_lead">
+        Have an upcoming web project, a video series needing high-retention editing, a data pipeline to automate, or localization work? Drop me a message below or reach out via Telegram or email.
+      </p>
+    </header>
+
+    <div class="contact-layout">
+      <!-- High-End Interactive Form -->
+      <form class="contact-form reveal" id="contactForm" novalidate aria-label="Contact form">
+        <div class="contact-form__badge">
+          <i class="fa-solid fa-bolt col-cyan"></i>
+          <span data-i18n="form_badge">Priority Inquiry Dispatcher</span>
+          <span class="badge-sla">⚡ Response &lt; 12h</span>
+        </div>
+
+        <!-- Quick Template Preset Selector Pills -->
+        <div class="form-quick-presets">
+          <span class="presets-label"><i class="fa-solid fa-wand-magic-sparkles col-gold"></i> Quick Project Blueprint:</span>
+          <div class="preset-pills">
+            <button type="button" class="preset-pill" data-preset="web">🌐 Web App / System</button>
+            <button type="button" class="preset-pill" data-preset="video">🎬 Video Post-Production</button>
+            <button type="button" class="preset-pill" data-preset="python">🐍 Python Automation</button>
+            <button type="button" class="preset-pill" data-preset="trans">🌍 Trilingual Localization</button>
+          </div>
+        </div>
+
+        <!-- Project Service Selection Chips -->
+        <div class="form-service-chips">
+          <label class="form-label-sm" data-i18n="form_services_label">Services Required:</label>
+          <div class="chips-container">
+            <label class="chip-checkbox">
+              <input type="checkbox" name="services" value="Web Development" checked id="chkWeb">
+              <span><i class="fa-solid fa-code col-cyan"></i> Web &amp; Apps</span>
+            </label>
+            <label class="chip-checkbox">
+              <input type="checkbox" name="services" value="Video Editing" id="chkVideo">
+              <span><i class="fa-solid fa-film col-rose"></i> Video &amp; Motion</span>
+            </label>
+            <label class="chip-checkbox">
+              <input type="checkbox" name="services" value="Data Automation" id="chkData">
+              <span><i class="fa-solid fa-database col-gold"></i> Python &amp; Data</span>
+            </label>
+            <label class="chip-checkbox">
+              <input type="checkbox" name="services" value="Amharic Translation" id="chkTrans">
+              <span><i class="fa-solid fa-language col-emerald"></i> 3-Way Translation</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="fieldName"><span data-i18n="form_name">Your Full Name</span> <em>*</em></label>
+            <input type="text" id="fieldName" name="name" placeholder="e.g. Alex Johnson" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="fieldEmail"><span data-i18n="form_email">Email Address</span> <em>*</em></label>
+            <input type="email" id="fieldEmail" name="email" placeholder="e.g. alex@example.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="fieldSubject"><span data-i18n="form_subject">Subject</span></label>
+            <input type="text" id="fieldSubject" name="subject" placeholder="e.g. Web App Redesign, YouTube Editing...">
+          </div>
+          <div class="form-group">
+            <label for="fieldBudget"><span data-i18n="form_budget">Estimated Budget Range</span></label>
+            <select id="fieldBudget" name="budget">
+              <option value="Flexible / To Be Discussed">Flexible / To Be Discussed</option>
+              <option value="$500 - $1,000">$500 – $1,000</option>
+              <option value="$1,000 - $2,500">$1,000 – $2,500</option>
+              <option value="$2,500 - $5,000+">$2,500 – $5,000+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="fieldMessage"><span data-i18n="form_message">Project Details &amp; Timeline</span> <em>*</em></label>
+          <textarea id="fieldMessage" name="message" rows="5" required
+                    placeholder="Tell me about what you're building, target timeline, and what success looks like..."></textarea>
+        </div>
+
+        <div class="form-actions-row">
+          <button type="submit" class="btn btn--primary btn--lg btn--shine" id="submitBtn">
+            <span class="btn__label"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="form_submit">Send Priority Inquiry</span></span>
+            <span class="btn__spinner"><i class="fa-solid fa-circle-notch fa-spin"></i> Dispatching...</span>
+          </button>
+          <button type="button" class="btn btn--glass btn--lg" id="sendViaTelegramBtn">
+            <i class="fa-brands fa-telegram col-cyan"></i>
+            <span data-i18n="form_telegram">Direct Telegram</span>
+          </button>
+          <button type="button" class="btn btn--outline btn--lg" id="sendViaMailtoBtn">
+            <i class="fa-solid fa-envelope-open-text col-violet"></i>
+            <span>Email Client</span>
+          </button>
+        </div>
+
+        <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+
+        <p class="form-note">
+          <i class="fa-solid fa-shield-halved col-emerald"></i>
+          <span data-i18n="form_privacy">100% spam-free guarantee. Your contact information is never shared with third parties.</span>
+        </p>
+      </form>
+
+      <!-- Direct Contact Channels Card -->
+      <aside class="contact-side-card reveal" aria-label="Direct contact details">
+        <h3 class="contact-side-title" data-i18n="direct_title">Direct Channels</h3>
+        <p class="contact-side-lead" data-i18n="direct_lead">
+          Prefer real-time chat? Click any line below to copy it or open the direct channel immediately.
+        </p>
+
+        <ul class="direct-channels-list">
+          <!-- Email (Click to copy / mailto) -->
+          <li class="direct-channel-item" data-copy="tame.wku.cs@gmail.com" title="Click to copy email">
+            <div class="direct-channel-icon"><i class="fa-regular fa-envelope col-cyan"></i></div>
+            <div class="direct-channel-info">
+              <span class="direct-channel-label">Primary Email</span>
+              <span class="direct-channel-val">tame.wku.cs@gmail.com</span>
+            </div>
+            <em class="direct-channel-action" data-i18n="action_copy">Copy</em>
+          </li>
+
+          <!-- Phone / Call / WhatsApp -->
+          <li class="direct-channel-item" data-copy="+251930909214" title="Click to copy phone">
+            <div class="direct-channel-icon"><i class="fa-solid fa-phone col-emerald"></i></div>
+            <div class="direct-channel-info">
+              <span class="direct-channel-label">Direct Phone / Call</span>
+              <span class="direct-channel-val">+251 930 909 214</span>
+            </div>
+            <em class="direct-channel-action" data-i18n="action_copy">Copy</em>
+          </li>
+
+          <!-- Telegram Direct -->
+          <li class="direct-channel-item direct-channel-item--link" data-url="https://t.me/Tame_Al29" title="Click to open Telegram">
+            <div class="direct-channel-icon"><i class="fa-brands fa-telegram col-cyan"></i></div>
+            <div class="direct-channel-info">
+              <span class="direct-channel-label">Telegram Handle</span>
+              <span class="direct-channel-val">@Tame_Al29</span>
+            </div>
+            <em class="direct-channel-action" data-i18n="action_open">Open</em>
+          </li>
+
+          <!-- WhatsApp Chat -->
+          <li class="direct-channel-item direct-channel-item--link" data-url="https://wa.me/251930909214" title="Click to chat on WhatsApp">
+            <div class="direct-channel-icon"><i class="fa-brands fa-whatsapp col-emerald"></i></div>
+            <div class="direct-channel-info">
+              <span class="direct-channel-label">WhatsApp Chat</span>
+              <span class="direct-channel-val">+251 930 909 214</span>
+            </div>
+            <em class="direct-channel-action" data-i18n="action_open">Open</em>
+          </li>
+
+          <!-- GitHub Repo -->
+          <li class="direct-channel-item direct-channel-item--link" data-url="https://github.com/Tamirat-CS" title="Click to view GitHub">
+            <div class="direct-channel-icon"><i class="fa-brands fa-github col-violet"></i></div>
+            <div class="direct-channel-info">
+              <span class="direct-channel-label">GitHub Repository</span>
+              <span class="direct-channel-val">github.com/Tamirat-CS</span>
+            </div>
+            <em class="direct-channel-action" data-i18n="action_open">Open</em>
+          </li>
+
+          <!-- YouTube Channel -->
+          <li class="direct-channel-item direct-channel-item--link" data-url="https://www.youtube.com/@tame_1219" title="Click to watch YouTube">
+            <div class="direct-channel-icon"><i class="fa-brands fa-youtube col-rose"></i></div>
+            <div class="direct-channel-info">
+              <span class="direct-channel-label">YouTube Studio</span>
+              <span class="direct-channel-val">@Tamirat_Tubes</span>
+            </div>
+            <em class="direct-channel-action" data-i18n="action_open">Open</em>
+          </li>
+
+          <!-- Campus Location -->
+          <li class="direct-channel-item" data-copy="Wolkite University, Ethiopia" title="Campus Location">
+            <div class="direct-channel-icon"><i class="fa-solid fa-location-dot col-gold"></i></div>
+            <div class="direct-channel-info">
+              <span class="direct-channel-label">Academic Location</span>
+              <span class="direct-channel-val">Wolkite University, Ethiopia</span>
+            </div>
+            <em class="direct-channel-action">Campus</em>
+          </li>
+        </ul>
+
+        <div class="availability-badge">
+          <span class="status-dot"></span>
+          <span data-i18n="avail_badge">Accepting Q1/Q2 Project Bookings · 12h SLA</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <span class="brand__mark">TA</span>
+        <div>
+          <strong class="col-cyan" data-i18n="hero_name">Tamirat Alemu</strong>
+          <span data-i18n="footer_role">Full-Stack Developer · Video Editor · Translator</span>
+        </div>
+      </div>
+      <div class="footer__socials">
+        <a href="https://github.com/Tamirat-CS" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://t.me/Tame_Al29" target="_blank" rel="noopener" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+        <a href="https://www.youtube.com/@tame_1219" target="_blank" rel="noopener" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="mailto:tame.wku.cs@gmail.com" title="Email"><i class="fa-regular fa-envelope"></i></a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© <span id="year">2026</span> Tamirat Alemu. All rights reserved.</span>
+      <span class="footer-sep">·</span>
+      <span>Handcrafted with HTML5, CSS3 &amp; Vanilla JS</span>
+      <span class="footer-sep">·</span>
+      <span id="visitCounter">👁 1,420 visits</span>
+    </div>
+
+    <div class="footer__shortcuts">
+      <span><kbd>⌘K</kbd> Quick Actions</span>
+      <span class="footer-sep">·</span>
+      <span><kbd>1</kbd>–<kbd>8</kbd> Jump Sections</span>
+      <span class="footer-sep">·</span>
+      <span><kbd>L</kbd> Switch Language</span>
+      <span class="footer-sep">·</span>
+      <span><kbd>T</kbd> Toggle Theme</span>
+      <span class="footer-sep">·</span>
+      <span><kbd>M</kbd> Toggle Audio FX</span>
+    </div>
+  </footer>
+
+</main>
+
+</div><!-- /.app-shell -->
+
+<!-- ============ PROJECT CASE STUDY MODAL ============ -->
+<div class="modal" id="caseStudyModal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal__mask" data-close-modal></div>
+  <div class="modal__panel">
+    <button class="modal__close" data-close-modal aria-label="Close modal">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="modal__scroll">
+      <div class="modal__hero">
+        <img id="modalHeroImg" src="" alt="Project Preview">
+        <div class="modal__hero-badge" id="modalBadge">Case Study</div>
+      </div>
+      <div class="modal__content">
+        <h2 class="modal__title" id="modalTitle">Project Title</h2>
+        <div class="modal__tags" id="modalTags"></div>
+        <div class="modal__grid">
+          <div class="modal__main">
+            <h3>Project Overview</h3>
+            <p id="modalOverview"></p>
+            <h3>The Challenge</h3>
+            <p id="modalChallenge"></p>
+            <h3>Engineering &amp; Creative Solution</h3>
+            <p id="modalSolution"></p>
+          </div>
+          <div class="modal__aside">
+            <div class="modal__stats-card">
+              <h4>Key Impact &amp; Metrics</h4>
+              <ul id="modalMetrics"></ul>
+            </div>
+            <div class="modal__actions">
+              <a href="#" id="modalLiveBtn" class="btn btn--primary btn--block btn--shine" target="_blank" rel="noopener">
+                <span>View Live Demo / Reel</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <a href="https://github.com/Tamirat-CS" id="modalGithubBtn" class="btn btn--outline btn--block" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github"></i>
+                <span>GitHub Codebase</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CV / RÉSUMÉ LIGHTBOX MODAL ============ -->
+<div class="modal" id="cvModal" hidden role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
+  <div class="modal__mask" data-close-cv></div>
+  <div class="modal__panel modal__panel--cv">
+    <button class="modal__close" data-close-cv aria-label="Close CV preview">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="cv-modal__head">
+      <div>
+        <h3 id="cvModalTitle">Curriculum Vitae — <span data-i18n="hero_name">Tamirat Alemu</span></h3>
+        <p data-i18n="footer_role">Full-Stack Developer · Video Editor · Translator</p>
+      </div>
+      <div class="cv-modal__actions">
+        <a href="documents/CV.pdf" class="btn btn--primary btn--sm btn--shine" download>
+          <i class="fa-solid fa-download"></i><span data-i18n="download_cv">Download PDF</span>
+        </a>
+      </div>
+    </div>
+    <div class="cv-modal__preview">
+      <img src="assets/images/CV.png" alt="Tamirat Alemu CV Graphic" onerror="this.onerror=null;this.src='assets/images/cvp.png';">
+    </div>
+  </div>
+</div>
+
+<!-- ============ COMMAND PALETTE ============ -->
+<div class="palette" id="palette" hidden>
+  <div class="palette__mask" data-close-palette></div>
+  <div class="palette__panel" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="palette__search">
+      <i class="fa-solid fa-magnifying-glass col-cyan"></i>
+      <input type="text" id="paletteInput" placeholder="Type a section, project name, or action (e.g. 'cv', 'video', 'lang')..." autocomplete="off">
+      <kbd>ESC</kbd>
+    </div>
+    <ul class="palette__list" id="paletteList">
+      <li data-action="goto" data-target="home"><i class="fa-solid fa-house col-cyan"></i><span>Go to Home</span><em>Hero</em></li>
+      <li data-action="goto" data-target="about"><i class="fa-regular fa-user col-violet"></i><span>Go to About</span><em>Profile</em></li>
+      <li data-action="goto" data-target="languages"><i class="fa-solid fa-code col-gold"></i><span>Go to Languages &amp; Stack</span><em>Tech</em></li>
+      <li data-action="goto" data-target="services"><i class="fa-solid fa-layer-group col-rose"></i><span>Go to Services</span><em>Offerings</em></li>
+      <li data-action="goto" data-target="work"><i class="fa-regular fa-folder-open col-cyan"></i><span>Go to Shipped Work</span><em>Projects</em></li>
+      <li data-action="goto" data-target="video-studio"><i class="fa-solid fa-film col-rose"></i><span>Go to Video Studio (Color Grading Demo)</span><em>Reel</em></li>
+      <li data-action="goto" data-target="translation-lab"><i class="fa-solid fa-language col-emerald"></i><span>Go to Language Lab</span><em>Amharic</em></li>
+      <li data-action="goto" data-target="contact"><i class="fa-regular fa-envelope col-violet"></i><span>Go to Contact</span><em>Inquire</em></li>
+      <li data-action="lang"><i class="fa-solid fa-globe col-cyan"></i><span>Switch Language (English / አማርኛ / Afaan Oromoo)</span><em>Trilingual</em></li>
+      <li data-action="cv-preview"><i class="fa-solid fa-id-card col-emerald"></i><span>Quick View Résumé (Visual Modal)</span><em>Modal</em></li>
+      <li data-action="cv-download"><i class="fa-solid fa-file-arrow-down col-gold"></i><span>Download Résumé (PDF)</span><em>File</em></li>
+      <li data-action="copy" data-copy="tame.wku.cs@gmail.com"><i class="fa-regular fa-copy col-cyan"></i><span>Copy Email Address</span><em>tame.wku.cs@gmail.com</em></li>
+      <li data-action="copy" data-copy="+251930909214"><i class="fa-regular fa-copy col-emerald"></i><span>Copy Phone Number</span><em>+251 930 909 214</em></li>
+      <li data-action="open-link" data-url="https://t.me/Tame_Al29"><i class="fa-brands fa-telegram col-cyan"></i><span>Open Telegram Chat</span><em>@Tame_Al29</em></li>
+      <li data-action="open-link" data-url="https://github.com/Tamirat-CS"><i class="fa-brands fa-github col-violet"></i><span>Open GitHub Profile</span><em>Tamirat-CS</em></li>
+      <li data-action="sound"><i class="fa-solid fa-volume-high col-amber"></i><span>Toggle Sound Effects</span><em>Audio FX</em></li>
+      <li data-action="theme"><i class="fa-solid fa-circle-half-stroke col-rose"></i><span>Toggle Dark / Light Theme</span><em>Appearance</em></li>
+      <li data-action="top"><i class="fa-solid fa-arrow-up col-cyan"></i><span>Scroll to Top of Page</span><em>Navigation</em></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============ TOASTS & CONFETTI CANVAS ============ -->
+<div class="toasts" id="toastWrap" aria-live="polite"></div>
+<canvas class="confetti" id="confetti" aria-hidden="true"></canvas>
+
+<!-- Main Interaction Script -->
+<script src="script.js"></script>
+</body>
+</html>

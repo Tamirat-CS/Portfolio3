@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Tamirat Alemu — Full-Stack Developer · Video Editor · Amharic–English Translator</title>
+<meta name="description" content="Tamirat Alemu is a full-stack developer, professional video editor, data specialist, and Amharic–English translator based in Ethiopia.">
+<meta name="theme-color" content="#07080d">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="no-scroll">
+
+<!-- ============ PRELOADER ============ -->
+<div class="preloader" id="preloader" role="status" aria-label="Loading portfolio">
+  <div class="preloader__bg"></div>
+  <div class="preloader__inner">
+    <div class="preloader__mark">
+      <span class="preloader__monogram">TA</span>
+      <span class="preloader__orbit"></span>
+      <span class="preloader__orbit preloader__orbit--2"></span>
+    </div>
+    <div class="preloader__name">Tamirat Alemu</div>
+    <div class="preloader__role">Full-Stack Developer · Video Editor · Translator</div>
+    <div class="preloader__bar"><span id="preloaderBar"></span></div>
+    <div class="preloader__pct"><span id="preloaderPct">0</span>%</div>
+  </div>
+</div>
+
+<!-- ============ SCROLL PROGRESS ============ -->
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- ============ AMBIENT BACKGROUND ============ -->
+<div class="bg" aria-hidden="true">
+  <div class="bg__grid"></div>
+  <div class="bg__orb bg__orb--violet"></div>
+  <div class="bg__orb bg__orb--cyan"></div>
+  <div class="bg__orb bg__orb--rose"></div>
+  <div class="bg__orb bg__orb--emerald"></div>
+  <div class="bg__noise"></div>
+</div>
+
+<!-- ============ MOBILE TOPBAR ============ -->
+<header class="topbar" id="topbar">
+  <a href="#home" class="brand" data-section="home" aria-label="Go home">
+    <span class="brand__mark">TA</span>
+    <span class="brand__name">Tamirat<em>.</em></span>
+  </a>
+  <div class="topbar__actions">
+    <button class="topbar__theme" id="themeToggleMobile" aria-label="Toggle theme">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="drawer-mask" id="drawerMask" aria-hidden="true"></div>
+
+<!-- ============ SIDEBAR ============ -->
+<aside class="sidebar" id="sidebar" aria-label="Primary sidebar">
+  <div class="sidebar__top">
+
+    <div class="identity">
+      <div class="identity__avatar">
+        <div class="identity__halo"></div>
+        <div class="identity__halo identity__halo--2"></div>
+        <div class="identity__frame">
+          <img src="assets/images/avatar.jpg" alt="Portrait of Tamirat Alemu"
+               onerror="this.onerror=null;this.src='https://api.dicebear.com/7.x/notionists/svg?seed=Tamirat&backgroundColor=8b5cf6,22d3ee,f472b6';">
+        </div>
+        <span class="identity__status" title="Available" aria-label="Available"></span>
+      </div>
+
+      <h1 class="identity__name">Tamirat Alemu</h1>
+      <p class="identity__role">Full-Stack Developer &amp; Video Editor</p>
+
+      <div class="identity__meta">
+        <span><i class="fa-solid fa-location-dot"></i> Wolkite, Ethiopia</span>
+        <span><i class="fa-regular fa-circle-check"></i> Open for work</span>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#home" class="nav__item is-active" data-section="home">
+        <i class="fa-solid fa-house"></i><span>Home</span><kbd>1</kbd>
+      </a>
+      <a href="#about" class="nav__item" data-section="about">
+        <i class="fa-regular fa-user"></i><span>About</span><kbd>2</kbd>
+      </a>
+      <a href="#services" class="nav__item" data-section="services">
+        <i class="fa-solid fa-layer-group"></i><span>Services</span><kbd>3</kbd>
+      </a>
+      <a href="#work" class="nav__item" data-section="work">
+        <i class="fa-regular fa-folder-open"></i><span>Selected Work</span><kbd>4</kbd>
+      </a>
+      <a href="#skills" class="nav__item" data-section="skills">
+        <i class="fa-solid fa-code"></i><span>Toolbox</span><kbd>5</kbd>
+      </a>
+      <a href="#testimonials" class="nav__item" data-section="testimonials">
+        <i class="fa-regular fa-comment-dots"></i><span>Kind Words</span><kbd>6</kbd>
+      </a>
+      <a href="#contact" class="nav__item" data-section="contact">
+        <i class="fa-regular fa-envelope"></i><span>Contact</span><kbd>7</kbd>
+      </a>
+    </nav>
+  </div>
+
+  <div class="sidebar__bottom">
+    <div class="sidebar__cta">
+      <a href="documents/cv.pdf" class="btn btn--primary btn--block" id="cvBtn" download>
+        <i class="fa-regular fa-file-pdf"></i><span>Download Résumé</span>
+      </a>
+      <a href="#contact" class="btn btn--outline btn--block" data-section="contact">
+        <i class="fa-regular fa-paper-plane"></i><span>Start a project</span>
+      </a>
+    </div>
+
+    <div class="quick-copy" aria-label="Quick contact">
+      <button class="quick-copy__btn" data-copy="tame.wku.cs@gmail.com" title="Copy email">
+        <i class="fa-regular fa-envelope"></i>
+      </button>
+      <button class="quick-copy__btn" data-copy="+251930909214" title="Copy phone">
+        <i class="fa-solid fa-phone"></i>
+      </button>
+      <a class="quick-copy__btn" href="https://t.me/Tame_Al29" target="_blank" rel="noopener" title="Telegram">
+        <i class="fa-brands fa-telegram"></i>
+      </a>
+      <a class="quick-copy__btn" href="https://github.com/Tamirat-CS" target="_blank" rel="noopener" title="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+    </div>
+
+    <button class="kbd-hint" id="openPalette" type="button" aria-label="Open command palette">
+      <i class="fa-solid fa-bolt"></i>
+      <span>Quick actions</span>
+      <kbd>⌘K</kbd>
+    </button>
+
+    <div class="sidebar__stats">
+      <div><strong data-count="15">15</strong><span>Projects</span></div>
+      <div><strong data-count="3">3</strong><span>Years</span></div>
+      <div><strong data-count="12">12</strong><span>Clients</span></div>
+    </div>
+  </div>
+</aside>
+
+<!-- ============ MAIN ============ -->
+<main class="main" id="main">
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" id="home" aria-labelledby="heroTitle">
+
+    <div class="hero__aurora" aria-hidden="true"></div>
+
+    <!-- Portrait at the top-right corner -->
+    <div class="hero__corner-portrait reveal" aria-hidden="true">
+      <div class="corner-portrait">
+        <div class="corner-portrait__glow"></div>
+        <div class="corner-portrait__ring"></div>
+        <div class="corner-portrait__ring corner-portrait__ring--2"></div>
+        <div class="corner-portrait__frame">
+          <img src="assets/images/profile1.jpg" alt=""
+               onerror="this.onerror=null;this.src='https://api.dicebear.com/7.x/notionists/svg?seed=Tamirat&backgroundColor=8b5cf6,22d3ee,f472b6';">
+          <div class="corner-portrait__shine"></div>
+        </div>
+        <span class="corner-portrait__chip corner-portrait__chip--1"><i class="fa-brands fa-react"></i></span>
+        <span class="corner-portrait__chip corner-portrait__chip--2"><i class="fa-brands fa-php"></i></span>
+        <span class="corner-portrait__chip corner-portrait__chip--3"><i class="fa-solid fa-film"></i></span>
+        <div class="corner-portrait__badge">
+          <span class="status-dot"></span>
+          <span>Available</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__content">
+
+      <div class="hero__eyebrow reveal">
+        <span class="status-dot"></span>
+        <span>Open for freelance &amp; full-time work</span>
+        <span class="hero__eyebrow-sep">·</span>
+        <span class="hero__eyebrow-loc">Wolkite, Ethiopia</span>
+      </div>
+
+      <h2 class="hero__title" id="heroTitle">
+        <span class="hero__line reveal">Hi, I'm <em>Tamirat</em>.</span>
+        <span class="hero__line hero__line--gradient reveal">I build digital experiences</span>
+        <span class="hero__line reveal">that actually move the needle.</span>
+      </h2>
+
+      <p class="hero__lead reveal">
+        A <strong>full-stack developer</strong>, <strong>cinematic video editor</strong>,
+        <strong>data specialist</strong>, and native-level <strong>Amharic ⇄ English translator</strong>.
+        I partner with founders, agencies, and creators to turn rough ideas into polished,
+        production-ready work — on time, on budget, without drama.
+      </p>
+
+      <div class="hero__rolebox reveal">
+        <span class="hero__rolebox-label">Now:</span>
+        <span class="hero__rolebox-text" id="rotatingRole">Full-Stack Developer</span>
+        <span class="hero__rolebox-caret"></span>
+      </div>
+
+      <div class="hero__actions reveal">
+        <a href="#work" class="btn btn--primary btn--lg" data-section="work">
+          <span>Explore selected work</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="#contact" class="btn btn--outline btn--lg" data-section="contact">
+          <i class="fa-regular fa-comment"></i>
+          <span>Let's talk</span>
+        </a>
+      </div>
+
+      <div class="hero__metrics reveal" role="list">
+        <div class="metric" role="listitem">
+          <span class="metric__num" data-count="15">0</span>
+          <span class="metric__plus">+</span>
+          <span class="metric__label">Projects delivered</span>
+        </div>
+        <div class="metric" role="listitem">
+          <span class="metric__num" data-count="12">0</span>
+          <span class="metric__plus">+</span>
+          <span class="metric__label">Satisfied clients</span>
+        </div>
+        <div class="metric" role="listitem">
+          <span class="metric__num" data-count="25">0</span>
+          <span class="metric__plus">+</span>
+          <span class="metric__label">Videos edited</span>
+        </div>
+        <div class="metric" role="listitem">
+          <span class="metric__num" data-count="3">0</span>
+          <span class="metric__plus">+</span>
+          <span class="metric__label">Years of craft</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>HTML5</span><em>◆</em>
+        <span>CSS3</span><em>◆</em>
+        <span>JavaScript</span><em>◆</em>
+        <span>React</span><em>◆</em>
+        <span>PHP</span><em>◆</em>
+        <span>MySQL</span><em>◆</em>
+        <span>Premiere Pro</span><em>◆</em>
+        <span>DaVinci Resolve</span><em>◆</em>
+        <span>After Effects</span><em>◆</em>
+        <span>Python</span><em>◆</em>
+        <span>REST APIs</span><em>◆</em>
+        <span>Amharic ⇄ English</span><em>◆</em>
+        <span>HTML5</span><em>◆</em>
+        <span>CSS3</span><em>◆</em>
+        <span>JavaScript</span><em>◆</em>
+        <span>React</span><em>◆</em>
+        <span>PHP</span><em>◆</em>
+        <span>MySQL</span><em>◆</em>
+        <span>Premiere Pro</span><em>◆</em>
+        <span>DaVinci Resolve</span><em>◆</em>
+        <span>After Effects</span><em>◆</em>
+        <span>Python</span><em>◆</em>
+        <span>REST APIs</span><em>◆</em>
+        <span>Amharic ⇄ English</span><em>◆</em>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT
+       ============================================================ -->
+  <section class="section" id="about" aria-labelledby="aboutTitle">
+    <header class="section__head reveal">
+      <span class="section__num">01 — About</span>
+      <h2 class="section__title" id="aboutTitle">
+        A multi-disciplinary maker with an engineer's brain and a storyteller's eye.
+      </h2>
+      <p class="section__lead">
+        I sit at the intersection of code, motion, and language — which means I can take a
+        project from a blank Figma file all the way to a deployed product with a launch video
+        and bilingual documentation, without needing five different people.
+      </p>
+    </header>
+
+    <div class="about">
+      <div class="about__main reveal">
+        <p class="about__lede">
+          I'm a <strong>Computer Science student</strong> at Wolkite University and a working
+          <strong>full-stack developer</strong>. For the past three years I've been building
+          web applications, editing video content, running data operations, and translating
+          between Amharic and English for clients across Ethiopia and abroad.
+        </p>
+        <p>
+          I started coding because I wanted to build the tools I wished existed. I started
+          editing because a friend asked me to fix a video and I never stopped. And I started
+          translating because growing up bilingual meant I could bridge conversations that
+          would otherwise stall. Today, all three disciplines feed each other: the developer
+          in me writes clean, maintainable code; the editor in me cares about pacing and
+          story; the translator in me makes sure nothing is lost in the handoff.
+        </p>
+        <p>
+          My clients tend to say the same things — that I'm <strong>fast</strong>, that I
+          <strong>communicate clearly</strong>, and that I <strong>actually ship</strong>.
+          I don't disappear after an invoice. I don't over-promise. I treat every project
+          like it's going to be on my permanent portfolio, because it probably will be.
+        </p>
+        <div class="about__signature">
+          <span class="about__signature-line"></span>
+          <span class="about__signature-text">Tamirat Alemu</span>
+        </div>
+      </div>
+
+      <aside class="about__side reveal" aria-label="Quick facts">
+        <div class="fact"><span class="fact__key">Based in</span><span class="fact__val">Wolkite, Ethiopia</span></div>
+        <div class="fact"><span class="fact__key">Time zone</span><span class="fact__val">EAT (UTC +3)</span></div>
+        <div class="fact"><span class="fact__key">Focus</span><span class="fact__val">Web · Video · Data · Language</span></div>
+        <div class="fact"><span class="fact__key">Languages</span><span class="fact__val">Amharic · English</span></div>
+        <div class="fact"><span class="fact__key">Response time</span><span class="fact__val">Under 12 hours</span></div>
+        <div class="fact"><span class="fact__key">Availability</span><span class="fact__val fact__val--ok">Open · 2025</span></div>
+      </aside>
+    </div>
+
+    <div class="values">
+      <article class="value reveal">
+        <div class="value__icon"><i class="fa-solid fa-bolt"></i></div>
+        <h3 class="value__title">Fast, without cutting corners</h3>
+        <p class="value__text">
+          I ship on realistic timelines and I'm honest about trade-offs. If something
+          needs a week, I'll tell you — and then deliver in six days.
+        </p>
+      </article>
+      <article class="value reveal">
+        <div class="value__icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3 class="value__title">Reliable, every single time</h3>
+        <p class="value__text">
+          Every deliverable is tested before it leaves my desk. No broken links, no silent bugs,
+          no "oops I forgot to push that."
+        </p>
+      </article>
+      <article class="value reveal">
+        <div class="value__icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <h3 class="value__title">Obsessed with the details</h3>
+        <p class="value__text">
+          Micro-interactions, color contrast, file naming, compression ratios —
+          the boring stuff separates good work from unforgettable work.
+        </p>
+      </article>
+      <article class="value reveal">
+        <div class="value__icon"><i class="fa-solid fa-handshake"></i></div>
+        <h3 class="value__title">Human, not a ticket system</h3>
+        <p class="value__text">
+          You'll talk to me, not a bot. I reply fast, I ask good questions, and I take
+          responsibility when things go sideways.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVICES
+       ============================================================ -->
+  <section class="section" id="services" aria-labelledby="servicesTitle">
+    <header class="section__head reveal">
+      <span class="section__num">02 — Services</span>
+      <h2 class="section__title" id="servicesTitle">
+        Four disciplines. One reliable partner.
+      </h2>
+      <p class="section__lead">
+        Whether you need a production-ready web app, a cinematic promo video, a messy
+        spreadsheet tamed, or a document translated into perfect Amharic — I handle it end to end.
+      </p>
+    </header>
+
+    <div class="services">
+      <article class="service reveal">
+        <span class="service__num">01</span>
+        <div class="service__icon"><i class="fa-solid fa-code"></i></div>
+        <h3 class="service__title">Web Development</h3>
+        <p class="service__desc">
+          Custom marketing sites, dashboards, and full-stack web applications built with
+          clean, maintainable code. I focus on real-world usability, not award-bait visuals
+          that collapse on mobile.
+        </p>
+        <ul class="service__list">
+          <li><i class="fa-solid fa-check"></i> Responsive marketing sites &amp; landing pages</li>
+          <li><i class="fa-solid fa-check"></i> Full-stack apps with authentication &amp; databases</li>
+          <li><i class="fa-solid fa-check"></i> REST API integrations</li>
+          <li><i class="fa-solid fa-check"></i> Performance audits &amp; accessibility fixes</li>
+        </ul>
+      </article>
+
+      <article class="service reveal">
+        <span class="service__num">02</span>
+        <div class="service__icon"><i class="fa-solid fa-film"></i></div>
+        <h3 class="service__title">Video Editing</h3>
+        <p class="service__desc">
+          Story-first edits that respect your audience's attention. Clean pacing, tasteful
+          motion graphics, and grading that makes even phone footage look intentional.
+        </p>
+        <ul class="service__list">
+          <li><i class="fa-solid fa-check"></i> YouTube long-form &amp; Shorts / Reels</li>
+          <li><i class="fa-solid fa-check"></i> Brand promos &amp; ad spots</li>
+          <li><i class="fa-solid fa-check"></i> Motion graphics, titles &amp; lower thirds</li>
+          <li><i class="fa-solid fa-check"></i> Sound design, mixing &amp; color grading</li>
+        </ul>
+      </article>
+
+      <article class="service reveal">
+        <span class="service__num">03</span>
+        <div class="service__icon"><i class="fa-solid fa-database"></i></div>
+        <h3 class="service__title">Data Entry &amp; Cleanup</h3>
+        <p class="service__desc">
+          Meticulous data handling for teams that can't afford mistakes. I import, validate,
+          deduplicate, and format — with an audit trail so you always know what changed.
+        </p>
+        <ul class="service__list">
+          <li><i class="fa-solid fa-check"></i> Bulk data entry &amp; migration</li>
+          <li><i class="fa-solid fa-check"></i> Deduplication &amp; validation rules</li>
+          <li><i class="fa-solid fa-check"></i> Excel &amp; Google Sheets automation</li>
+          <li><i class="fa-solid fa-check"></i> CSV / JSON cleanup pipelines</li>
+        </ul>
+      </article>
+
+      <article class="service reveal">
+        <span class="service__num">04</span>
+        <div class="service__icon"><i class="fa-solid fa-language"></i></div>
+        <h3 class="service__title">Amharic ⇄ English Translation</h3>
+        <p class="service__desc">
+          Natural, context-aware translation — not machine output. I translate documents,
+          websites, subtitles, and business communication with the tone and nuance your
+          audience expects.
+        </p>
+        <ul class="service__list">
+          <li><i class="fa-solid fa-check"></i> Legal &amp; business documents</li>
+          <li><i class="fa-solid fa-check"></i> Websites &amp; mobile app strings</li>
+          <li><i class="fa-solid fa-check"></i> Subtitles, captions &amp; scripts</li>
+          <li><i class="fa-solid fa-check"></i> Localization &amp; cultural adaptation</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WORK
+       ============================================================ -->
+  <section class="section" id="work" aria-labelledby="workTitle">
+    <header class="section__head reveal">
+      <span class="section__num">03 — Selected Work</span>
+      <h2 class="section__title" id="workTitle">
+        A small window into what I've been building.
+      </h2>
+      <p class="section__lead">
+        Below is a curated selection. If you want to see more — including experiments,
+        drafts, and client work I can't publish publicly — just ask and I'll share.
+      </p>
+    </header>
+
+    <div class="filters reveal" role="tablist" aria-label="Filter projects">
+      <button class="chip is-active" data-filter="all" role="tab" aria-selected="true">All work</button>
+      <button class="chip" data-filter="web" role="tab" aria-selected="false">Web development</button>
+      <button class="chip" data-filter="video" role="tab" aria-selected="false">Video editing</button>
+      <button class="chip" data-filter="data" role="tab" aria-selected="false">Data &amp; automation</button>
+    </div>
+
+    <article class="featured reveal" data-cat="web">
+      <div class="featured__media">
+        <div class="featured__media-bg">
+          <i class="fa-solid fa-check-to-slot"></i>
+          <span>FEATURED · CASE STUDY</span>
+        </div>
+        <img src="assets/images/project1.png" alt="Online Voting System" onerror="this.style.display='none'">
+      </div>
+      <div class="featured__body">
+        <span class="featured__tag"><i class="fa-solid fa-star"></i> Highlighted project</span>
+        <h3 class="featured__title">Online Voting System for University Student Councils</h3>
+        <p class="featured__desc">
+          A secure, end-to-end e-voting platform built for Wolkite University's student
+          elections. Handles 300+ concurrent voters, real-time tally, role-based administration,
+          and a full audit trail for every ballot.
+        </p>
+        <ul class="featured__meta">
+          <li><i class="fa-solid fa-circle-check"></i> 300+ concurrent voters without a single dropped ballot</li>
+          <li><i class="fa-solid fa-circle-check"></i> Real-time results dashboard for election officials</li>
+          <li><i class="fa-solid fa-circle-check"></i> Full audit trail &amp; tamper-evident logging</li>
+          <li><i class="fa-solid fa-circle-check"></i> Role-based access for admins, observers &amp; voters</li>
+        </ul>
+        <div class="featured__tags">
+          <span>PHP</span><span>MySQL</span><span>JavaScript</span><span>Bootstrap</span>
+        </div>
+        <a href="#" class="featured__link">
+          <span>Read the full case study</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </article>
+
+    <div class="work-grid">
+      <article class="work reveal" data-cat="web">
+        <div class="work__media work__media--violet">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>STUDENT PORTAL</span>
+        </div>
+        <div class="work__body">
+          <h3 class="work__title">Student Result Management System</h3>
+          <p class="work__desc">
+            Grading, analytics, and reporting for 300+ students. Replaced a paper-based
+            process that took weeks with a dashboard that updates in seconds.
+          </p>
+          <div class="work__tags"><span>PHP</span><span>MySQL</span><span>Bootstrap</span></div>
+        </div>
+      </article>
+
+      <article class="work reveal" data-cat="web">
+        <div class="work__media work__media--cyan">
+          <i class="fa-solid fa-list-check"></i>
+          <span>TASKFLOW</span>
+        </div>
+        <div class="work__body">
+          <h3 class="work__title">TaskFlow — Offline-First Task Manager</h3>
+          <p class="work__desc">
+            A productivity app that works without internet, syncs when you're back online,
+            and supports drag-and-drop categories and keyboard shortcuts.
+          </p>
+          <div class="work__tags"><span>React</span><span>CSS</span><span>LocalStorage</span></div>
+        </div>
+      </article>
+
+      <article class="work reveal" data-cat="web">
+        <div class="work__media work__media--rose">
+          <i class="fa-solid fa-cloud-sun"></i>
+          <span>ETHIO WEATHER</span>
+        </div>
+        <div class="work__body">
+          <h3 class="work__title">Ethio-Weather — City Forecast for Ethiopia</h3>
+          <p class="work__desc">
+            Real-time weather for Ethiopian cities using a public API, with a clean UI
+            optimized for slow connections and small screens.
+          </p>
+          <div class="work__tags"><span>API</span><span>JavaScript</span><span>CSS</span></div>
+        </div>
+      </article>
+
+      <article class="work reveal" data-cat="video">
+        <div class="work__media work__media--amber">
+          <i class="fa-solid fa-film"></i>
+          <span>BRAND PROMO</span>
+        </div>
+        <div class="work__body">
+          <h3 class="work__title">Corporate Promotional Video</h3>
+          <p class="work__desc">
+            A 90-second brand film with motion graphics, licensed music, sound design, and
+            cinematic color grading — delivered in four aspect ratios.
+          </p>
+          <div class="work__tags"><span>Premiere Pro</span><span>After Effects</span></div>
+        </div>
+      </article>
+
+      <article class="work reveal" data-cat="data">
+        <div class="work__media work__media--emerald">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>DATA CLEANER</span>
+        </div>
+        <div class="work__body">
+          <h3 class="work__title">Automated CSV Cleaning Pipeline</h3>
+          <p class="work__desc">
+            A Python script that deduplicates, validates, and normalizes large CSV exports.
+            Reduced a 4-hour manual task to a 40-second run.
+          </p>
+          <div class="work__tags"><span>Python</span><span>Pandas</span></div>
+        </div>
+      </article>
+
+      <article class="work reveal" data-cat="video">
+        <div class="work__media work__media--indigo">
+          <i class="fa-solid fa-clapperboard"></i>
+          <span>YOUTUBE SERIES</span>
+        </div>
+        <div class="work__body">
+          <h3 class="work__title">Ongoing YouTube Editing</h3>
+          <p class="work__desc">
+            Weekly long-form editing for an Ethiopian creator — pacing, b-roll, captions,
+            and thumbnails that consistently beat channel averages.
+          </p>
+          <div class="work__tags"><span>Premiere Pro</span><span>Sound Design</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SKILLS
+       ============================================================ -->
+  <section class="section" id="skills" aria-labelledby="skillsTitle">
+    <header class="section__head reveal">
+      <span class="section__num">04 — Toolbox</span>
+      <h2 class="section__title" id="skillsTitle">
+        The tools I reach for every week.
+      </h2>
+      <p class="section__lead">
+        I'm not a "knows everything" developer — I'm a "knows these deeply and learns the
+        rest fast" developer. Here's what I'm fluent in today.
+      </p>
+    </header>
+
+    <div class="skills">
+      <div class="skills__group reveal">
+        <h3 class="skills__group-title"><i class="fa-solid fa-display"></i> Frontend</h3>
+        <div class="skills__list">
+          <div class="skill"><span class="skill__name">HTML5 &amp; semantic markup</span>
+            <div class="skill__bar"><i style="--v:92%"></i></div></div>
+          <div class="skill"><span class="skill__name">CSS3, Flexbox &amp; Grid</span>
+            <div class="skill__bar"><i style="--v:88%"></i></div></div>
+          <div class="skill"><span class="skill__name">JavaScript (ES2020+)</span>
+            <div class="skill__bar"><i style="--v:82%"></i></div></div>
+          <div class="skill"><span class="skill__name">React &amp; component design</span>
+            <div class="skill__bar"><i style="--v:68%"></i></div></div>
+        </div>
+      </div>
+
+      <div class="skills__group reveal">
+        <h3 class="skills__group-title"><i class="fa-solid fa-server"></i> Backend</h3>
+        <div class="skills__list">
+          <div class="skill"><span class="skill__name">PHP &amp; server-side logic</span>
+            <div class="skill__bar"><i style="--v:78%"></i></div></div>
+          <div class="skill"><span class="skill__name">MySQL &amp; relational design</span>
+            <div class="skill__bar"><i style="--v:80%"></i></div></div>
+          <div class="skill"><span class="skill__name">REST APIs &amp; integrations</span>
+            <div class="skill__bar"><i style="--v:72%"></i></div></div>
+          <div class="skill"><span class="skill__name">Git &amp; version control</span>
+            <div class="skill__bar"><i style="--v:85%"></i></div></div>
+        </div>
+      </div>
+
+      <div class="skills__group reveal">
+        <h3 class="skills__group-title"><i class="fa-solid fa-clapperboard"></i> Media</h3>
+        <div class="skills__list">
+          <div class="skill"><span class="skill__name">Adobe Premiere Pro</span>
+            <div class="skill__bar"><i style="--v:90%"></i></div></div>
+          <div class="skill"><span class="skill__name">DaVinci Resolve</span>
+            <div class="skill__bar"><i style="--v:80%"></i></div></div>
+          <div class="skill"><span class="skill__name">After Effects</span>
+            <div class="skill__bar"><i style="--v:65%"></i></div></div>
+          <div class="skill"><span class="skill__name">Sound design &amp; mixing</span>
+            <div class="skill__bar"><i style="--v:72%"></i></div></div>
+        </div>
+      </div>
+
+      <div class="skills__group reveal">
+        <h3 class="skills__group-title"><i class="fa-solid fa-pen-ruler"></i> Other Crafts</h3>
+        <div class="skills__list">
+          <div class="skill"><span class="skill__name">Amharic ⇄ English translation</span>
+            <div class="skill__bar"><i style="--v:96%"></i></div></div>
+          <div class="skill"><span class="skill__name">Data entry &amp; cleanup</span>
+            <div class="skill__bar"><i style="--v:92%"></i></div></div>
+          <div class="skill"><span class="skill__name">Python scripting</span>
+            <div class="skill__bar"><i style="--v:62%"></i></div></div>
+          <div class="skill"><span class="skill__name">Figma &amp; UI design</span>
+            <div class="skill__bar"><i style="--v:70%"></i></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS
+       ============================================================ -->
+  <section class="section" id="testimonials" aria-labelledby="testimonialsTitle">
+    <header class="section__head reveal">
+      <span class="section__num">05 — Kind Words</span>
+      <h2 class="section__title" id="testimonialsTitle">
+        What people say after working with me.
+      </h2>
+      <p class="section__lead">
+        These aren't paid endorsements — they're just what people said when I asked them
+        for feedback. I'll happily connect you with any of them.
+      </p>
+    </header>
+
+    <div class="quotes">
+      <figure class="quote reveal">
+        <div class="quote__mark">"</div>
+        <div class="quote__stars" aria-label="5 out of 5 stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <blockquote class="quote__text">
+          Tamirat delivered our voting system <strong>three days ahead of schedule</strong>
+          and it worked flawlessly under real election-day load. He communicated clearly
+          at every step, flagged risks before they became problems, and documented
+          everything for our team.
+        </blockquote>
+        <figcaption class="quote__meta">
+          <div class="quote__avatar" style="--a:#8b5cf6;--b:#22d3ee">AB</div>
+          <div>
+            <strong class="quote__name">Abel Bekele</strong>
+            <span class="quote__role">Project Manager · Wolkite University</span>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="quote reveal">
+        <div class="quote__mark">"</div>
+        <div class="quote__stars" aria-label="5 out of 5 stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <blockquote class="quote__text">
+          The video edits were <strong>clean, modern, and on-brand</strong> from the very
+          first draft. Turnaround times were fast, revisions were handled without drama,
+          and my channel's watch time went up noticeably.
+        </blockquote>
+        <figcaption class="quote__meta">
+          <div class="quote__avatar" style="--a:#f472b6;--b:#8b5cf6">SG</div>
+          <div>
+            <strong class="quote__name">Sara Girma</strong>
+            <span class="quote__role">Content Creator · YouTube</span>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="quote reveal">
+        <div class="quote__mark">"</div>
+        <div class="quote__stars" aria-label="5 out of 5 stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <blockquote class="quote__text">
+          Amharic-to-English translation was <strong>accurate and natural</strong> — not
+          the stiff, robotic output you get from most translators. The data entry work
+          was flawless too. I'll absolutely hire Tamirat again.
+        </blockquote>
+        <figcaption class="quote__meta">
+          <div class="quote__avatar" style="--a:#34d399;--b:#22d3ee">YT</div>
+          <div>
+            <strong class="quote__name">Yohannes Tesfaye</strong>
+            <span class="quote__role">Founder · Bilingual Startup</span>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT
+       ============================================================ -->
+  <section class="section" id="contact" aria-labelledby="contactTitle">
+    <header class="section__head reveal">
+      <span class="section__num">06 — Contact</span>
+      <h2 class="section__title" id="contactTitle">
+        Let's build something worth remembering.
+      </h2>
+      <p class="section__lead">
+        Whether you have a fully-scoped project or just a rough idea scribbled in a
+        notebook, I'd love to hear about it. I reply to every serious inquiry within
+        12 hours — usually much faster.
+      </p>
+    </header>
+
+    <div class="contact">
+      <form class="form reveal" id="contactForm" novalidate aria-label="Contact form">
+        <div class="form__row">
+          <div class="form__field">
+            <label for="fieldName">Your name <em>*</em></label>
+            <input type="text" id="fieldName" name="name" placeholder="e.g. Jane Doe" required autocomplete="name">
+          </div>
+          <div class="form__field">
+            <label for="fieldEmail">Email address <em>*</em></label>
+            <input type="email" id="fieldEmail" name="email" placeholder="e.g. jane@example.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form__field">
+          <label for="fieldSubject">Subject <em>(optional)</em></label>
+          <input type="text" id="fieldSubject" name="subject" placeholder="e.g. Website redesign, YouTube editing, translation…">
+        </div>
+
+        <div class="form__field">
+          <label for="fieldMessage">Tell me about your project <em>*</em></label>
+          <textarea id="fieldMessage" name="message" rows="7" required
+                    placeholder="What are you building? What's the timeline? What does success look like? The more detail, the better my response."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--block btn--lg" id="submitBtn">
+          <span class="btn__label"><i class="fa-regular fa-paper-plane"></i> Send message</span>
+          <span class="btn__spinner"><i class="fa-solid fa-circle-notch fa-spin"></i> Sending…</span>
+        </button>
+
+        <div id="formStatus" class="form__status" role="status" aria-live="polite"></div>
+
+        <p class="form__note">
+          <i class="fa-solid fa-lock"></i>
+          Your information is only used to reply to your message. No spam, ever.
+        </p>
+      </form>
+
+      <aside class="side-card reveal" aria-label="Direct contact details">
+        <h3 class="side-card__title">Prefer to reach out directly?</h3>
+        <p class="side-card__lead">
+          Click any line below to copy it, or use the icons to open the link.
+          I'm most responsive on Telegram and email.
+        </p>
+
+        <ul class="contact-list">
+          <li class="contact-list__item" data-copy="tame.wku.cs@gmail.com">
+            <i class="fa-regular fa-envelope"></i>
+            <span>tame.wku.cs@gmail.com</span>
+            <em>Copy</em>
+          </li>
+          <li class="contact-list__item" data-copy="+251930909214">
+            <i class="fa-solid fa-phone"></i>
+            <span>+251 930 909 214</span>
+            <em>Copy</em>
+          </li>
+          <li class="contact-list__item">
+            <i class="fa-brands fa-telegram"></i>
+            <a href="https://t.me/Tame_Al29" target="_blank" rel="noopener">@Tame_Al29</a>
+            <em>Open</em>
+          </li>
+          <li class="contact-list__item">
+            <i class="fa-brands fa-github"></i>
+            <a href="https://github.com/Tamirat-CS" target="_blank" rel="noopener">github.com/Tamirat-CS</a>
+            <em>Open</em>
+          </li>
+          <li class="contact-list__item">
+            <i class="fa-brands fa-youtube"></i>
+            <a href="https://www.youtube.com/@tame_1219" target="_blank" rel="noopener">@Tamirat_Tubes</a>
+            <em>Open</em>
+          </li>
+          <li class="contact-list__item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Wolkite University, Ethiopia</span>
+            <em>Loc</em>
+          </li>
+        </ul>
+
+        <div class="availability">
+          <span class="availability__dot"></span>
+          <span>Currently accepting new projects for 2025</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="footer" aria-label="Site footer">
+    <div class="footer__row">
+      <span class="footer__brand">
+        <span class="footer__mark">TA</span>
+        <span>Tamirat Alemu</span>
+      </span>
+      <span class="footer__sep">·</span>
+      <span>© <span id="year">2025</span></span>
+      <span class="footer__sep">·</span>
+      <span>Built with HTML, CSS &amp; JavaScript</span>
+      <span class="footer__sep">·</span>
+      <span id="visitCounter">👁 Loading…</span>
+    </div>
+    <div class="footer__row footer__row--muted">
+      <span>Press <kbd>⌘K</kbd> for quick actions</span>
+      <span class="footer__sep">·</span>
+      <span>Press <kbd>1</kbd>–<kbd>7</kbd> to jump</span>
+      <span class="footer__sep">·</span>
+      <span>Press <kbd>T</kbd> to toggle theme</span>
+    </div>
+  </footer>
+</main>
+
+<!-- ============ FLOATING CONTROLS ============ -->
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+  <i class="fa-solid fa-moon"></i>
+</button>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 48 48" class="back-to-top__ring" aria-hidden="true">
+    <circle class="back-to-top__bg" cx="24" cy="24" r="21"></circle>
+    <circle class="back-to-top__fg" id="ringFg" cx="24" cy="24" r="21"></circle>
+  </svg>
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- ============ COMMAND PALETTE ============ -->
+<div class="palette" id="palette" hidden>
+  <div class="palette__mask" data-close></div>
+  <div class="palette__panel" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="palette__search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="paletteInput" placeholder="Search sections, actions, or links…" autocomplete="off">
+      <kbd>ESC</kbd>
+    </div>
+    <ul class="palette__list" id="paletteList">
+      <li data-action="goto" data-target="home"><i class="fa-solid fa-house"></i><span>Go to Home</span><em>Section</em></li>
+      <li data-action="goto" data-target="about"><i class="fa-regular fa-user"></i><span>Go to About</span><em>Section</em></li>
+      <li data-action="goto" data-target="services"><i class="fa-solid fa-layer-group"></i><span>Go to Services</span><em>Section</em></li>
+      <li data-action="goto" data-target="work"><i class="fa-regular fa-folder-open"></i><span>Go to Selected Work</span><em>Section</em></li>
+      <li data-action="goto" data-target="skills"><i class="fa-solid fa-code"></i><span>Go to Toolbox</span><em>Section</em></li>
+      <li data-action="goto" data-target="testimonials"><i class="fa-regular fa-comment-dots"></i><span>Go to Kind Words</span><em>Section</em></li>
+      <li data-action="goto" data-target="contact"><i class="fa-regular fa-envelope"></i><span>Go to Contact</span><em>Section</em></li>
+      <li data-action="cv"><i class="fa-regular fa-file-pdf"></i><span>Download Résumé</span><em>Action</em></li>
+      <li data-action="copy" data-copy="tame.wku.cs@gmail.com"><i class="fa-regular fa-copy"></i><span>Copy email address</span><em>Action</em></li>
+      <li data-action="copy" data-copy="+251930909214"><i class="fa-regular fa-copy"></i><span>Copy phone number</span><em>Action</em></li>
+      <li data-action="theme"><i class="fa-solid fa-circle-half-stroke"></i><span>Toggle light / dark theme</span><em>Action</em></li>
+      <li data-action="top"><i class="fa-solid fa-arrow-up"></i><span>Scroll to top of page</span><em>Action</em></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============ TOASTS + CONFETTI ============ -->
+<div class="toasts" id="toastWrap" aria-live="polite"></div>
+<canvas class="confetti" id="confetti" aria-hidden="true"></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>
